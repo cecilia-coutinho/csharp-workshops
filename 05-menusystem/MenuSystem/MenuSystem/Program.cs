@@ -63,7 +63,12 @@ namespace MenuSystem
         {
             try
             {
-
+                var process = new Process();
+                process.StartInfo.FileName = @"..\..\..\..\..\..\01-hello-world\MyFirstProgram\bin\Debug\net6.0\MyFirstProgram.exe";
+                process.StartInfo.UseShellExecute = true;
+                process.StartInfo.CreateNoWindow = false;
+                process.StartInfo.WindowStyle = ProcessWindowStyle.Normal;
+                process.Start();
             }
             catch (Exception e)
             {
@@ -71,12 +76,7 @@ namespace MenuSystem
                 Console.WriteLine(e.Message);
                 Console.WriteLine();
             }
-            var process = new Process();
-            process.StartInfo.FileName = @"..\..\..\..\..\..\01-hello-world\MyFirstProgram\bin\Debug\net6.0\MyFirstProgram.exe";
-            process.StartInfo.UseShellExecute = true;
-            process.StartInfo.CreateNoWindow = false;
-            process.StartInfo.WindowStyle = ProcessWindowStyle.Normal;
-            process.Start();
+
         }
 
         static void GuessNumberProject()
@@ -89,7 +89,6 @@ namespace MenuSystem
                 process.StartInfo.CreateNoWindow = false;
                 process.StartInfo.WindowStyle = ProcessWindowStyle.Normal;
                 process.Start();
-
             }
             catch (Exception e)
             {
