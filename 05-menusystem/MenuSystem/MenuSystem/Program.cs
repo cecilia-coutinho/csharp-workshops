@@ -61,6 +61,16 @@ namespace MenuSystem
 
         static void HelloWorldProject()
         {
+            try
+            {
+
+            }
+            catch (Exception e)
+            {
+
+                Console.WriteLine(e.Message);
+                Console.WriteLine();
+            }
             var process = new Process();
             process.StartInfo.FileName = @"..\..\..\..\..\..\01-hello-world\MyFirstProgram\bin\Debug\net6.0\MyFirstProgram.exe";
             process.StartInfo.UseShellExecute = true;
@@ -71,32 +81,70 @@ namespace MenuSystem
 
         static void GuessNumberProject()
         {
-            var process = new Process();
-            process.StartInfo.FileName = @"..\..\..\..\..\..\02-guess-number\NumbersGame\bin\Debug\net6.0\NumbersGame.exe";
-            process.StartInfo.UseShellExecute = true;
-            process.StartInfo.CreateNoWindow = false;
-            process.StartInfo.WindowStyle = ProcessWindowStyle.Normal;
-            process.Start();
+            try
+            {
+                var process = new Process();
+                process.StartInfo.FileName = @"..\..\..\..\..\..\02-guess-number\NumbersGame\bin\Debug\net6.0\NumbersGame.exe";
+                process.StartInfo.UseShellExecute = true;
+                process.StartInfo.CreateNoWindow = false;
+                process.StartInfo.WindowStyle = ProcessWindowStyle.Normal;
+                process.Start();
+
+            }
+            catch (Exception e)
+            {
+
+                Console.WriteLine(e.Message);
+                Console.WriteLine();
+            }
         }
 
         static void ChessBoardProject()
         {
-            Console.WriteLine();
+            try
+            {
+                var process = new Process();
+                process.StartInfo.FileName = @"..\..\..\..\..\..\04-chessboard\ChessBoard\ChessBoard\bin\Debug\net6.0\ChessBoard.exe";
+                process.StartInfo.UseShellExecute = true;
+                process.StartInfo.CreateNoWindow = false;
+                process.StartInfo.WindowStyle = ProcessWindowStyle.Normal;
+                process.Start();
+            }
+            catch (Exception e)
+            {
+
+                Console.WriteLine(e.Message);
+                Console.WriteLine();
+            }
+
         }
 
         static void RockPaperScissorsProject()
         {
-            var process = new Process();
-            process.StartInfo.FileName = @"..\..\..\..\..\..\06-rock-paper-scissor\RockPaperScissors\bin\Debug\net6.0\RockPaperScissors.exe";
-            process.StartInfo.UseShellExecute = true;
-            process.StartInfo.CreateNoWindow = false;
-            process.StartInfo.WindowStyle = ProcessWindowStyle.Normal;
-            process.Start();
+            try
+            {
+                var process = new Process();
+                process.StartInfo.FileName = @"..\..\..\..\..\..\06-rock-paper-scissor\RockPaperScissors\bin\Debug\net6.0\RockPaperScissors.exe";
+                process.StartInfo.UseShellExecute = true;
+                process.StartInfo.CreateNoWindow = false;
+                process.StartInfo.WindowStyle = ProcessWindowStyle.Normal;
+                process.Start();
+            }
+            catch (Exception e)
+            {
+
+                Console.WriteLine(e.Message);
+                Console.WriteLine();
+            }
+
         }
 
         static void MyGithub()
         {
-            Console.WriteLine("\n\thttps://github.com/cecilia-coutinho\n");
+            Console.WriteLine("\n\tMy Github Page:" + "\n\thttps://github.com/cecilia-coutinho\n");
+            Console.WriteLine("\n\tclick ENTER to restart menu options.");
+            Console.ReadLine();
+
         }
     }
 }
