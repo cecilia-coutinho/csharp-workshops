@@ -33,7 +33,8 @@
 
                 if (userNumberInt == randomNumber)
                 {
-                    Console.WriteLine("You guessed right");
+                    Console.WriteLine("CONGRATULATIONS! You guessed right!\n");
+                    Console.WriteLine("Click ENTER to close the window");
                     break;
                 }
 
@@ -48,10 +49,12 @@
                 if (tries == counter)
                 {
                     Console.WriteLine("the number was: " + randomNumber);
-                    Console.WriteLine("Unfortunately you failed to guess the number in five tries!");
+                    Console.WriteLine("Unfortunately you failed to guess the number in five tries!\n");
+                    Console.WriteLine("Click ENTER to close the window");
                     break;
                 }
             }
+            Console.ReadLine();
         }
     }
 }

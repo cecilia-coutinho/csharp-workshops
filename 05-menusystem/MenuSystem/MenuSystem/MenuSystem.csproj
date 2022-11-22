@@ -1,0 +1,44 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="obj\Debug\net6.0\.NETCoreApp,Version=v6.0.AssemblyAttributes.cs" />
+    <Compile Include="obj\Debug\net6.0\MenuSystem.AssemblyInfo.cs" />
+    <Compile Include="obj\Debug\net6.0\MenuSystem.GlobalUsings.g.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="bin\Debug\net6.0\MenuSystem.deps.json" />
+    <Content Include="bin\Debug\net6.0\MenuSystem.runtimeconfig.json" />
+    <Content Include="obj\Debug\net6.0\MenuSystem.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\MenuSystem.csproj.nuget.dgspec.json" />
+    <Content Include="obj\project.assets.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="bin\Debug\net6.0\MenuSystem.dll" />
+    <None Include="bin\Debug\net6.0\MenuSystem.exe" />
+    <None Include="bin\Debug\net6.0\MenuSystem.pdb" />
+    <None Include="obj\Debug\net6.0\apphost.exe" />
+    <None Include="obj\Debug\net6.0\MenuSystem.AssemblyInfoInputs.cache" />
+    <None Include="obj\Debug\net6.0\MenuSystem.assets.cache" />
+    <None Include="obj\Debug\net6.0\MenuSystem.csproj.AssemblyReference.cache" />
+    <None Include="obj\Debug\net6.0\MenuSystem.csproj.CoreCompileInputs.cache" />
+    <None Include="obj\Debug\net6.0\MenuSystem.dll" />
+    <None Include="obj\Debug\net6.0\MenuSystem.GeneratedMSBuildEditorConfig.editorconfig" />
+    <None Include="obj\Debug\net6.0\MenuSystem.genruntimeconfig.cache" />
+    <None Include="obj\Debug\net6.0\MenuSystem.pdb" />
+    <None Include="obj\Debug\net6.0\refint\MenuSystem.dll" />
+    <None Include="obj\Debug\net6.0\ref\MenuSystem.dll" />
+    <None Include="obj\MenuSystem.csproj.nuget.g.props" />
+    <None Include="obj\MenuSystem.csproj.nuget.g.targets" />
+    <None Include="obj\project.nuget.cache" />
+  </ItemGroup>
+
+</Project>
