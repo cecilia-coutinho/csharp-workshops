@@ -1,0 +1,15 @@
+C:\Users\Ceci\Desktop\web-projects\NET22\csharp\csharp-workshops\10-OOP-inherit\OOPInherit\OOPInherit\bin\Debug\net6.0\OOPInherit.exe
+C:\Users\Ceci\Desktop\web-projects\NET22\csharp\csharp-workshops\10-OOP-inherit\OOPInherit\OOPInherit\bin\Debug\net6.0\OOPInherit.deps.json
+C:\Users\Ceci\Desktop\web-projects\NET22\csharp\csharp-workshops\10-OOP-inherit\OOPInherit\OOPInherit\bin\Debug\net6.0\OOPInherit.runtimeconfig.json
+C:\Users\Ceci\Desktop\web-projects\NET22\csharp\csharp-workshops\10-OOP-inherit\OOPInherit\OOPInherit\bin\Debug\net6.0\OOPInherit.dll
+C:\Users\Ceci\Desktop\web-projects\NET22\csharp\csharp-workshops\10-OOP-inherit\OOPInherit\OOPInherit\bin\Debug\net6.0\OOPInherit.pdb
+C:\Users\Ceci\Desktop\web-projects\NET22\csharp\csharp-workshops\10-OOP-inherit\OOPInherit\OOPInherit\obj\Debug\net6.0\OOPInherit.csproj.AssemblyReference.cache
+C:\Users\Ceci\Desktop\web-projects\NET22\csharp\csharp-workshops\10-OOP-inherit\OOPInherit\OOPInherit\obj\Debug\net6.0\OOPInherit.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ceci\Desktop\web-projects\NET22\csharp\csharp-workshops\10-OOP-inherit\OOPInherit\OOPInherit\obj\Debug\net6.0\OOPInherit.AssemblyInfoInputs.cache
+C:\Users\Ceci\Desktop\web-projects\NET22\csharp\csharp-workshops\10-OOP-inherit\OOPInherit\OOPInherit\obj\Debug\net6.0\OOPInherit.AssemblyInfo.cs
+C:\Users\Ceci\Desktop\web-projects\NET22\csharp\csharp-workshops\10-OOP-inherit\OOPInherit\OOPInherit\obj\Debug\net6.0\OOPInherit.csproj.CoreCompileInputs.cache
+C:\Users\Ceci\Desktop\web-projects\NET22\csharp\csharp-workshops\10-OOP-inherit\OOPInherit\OOPInherit\obj\Debug\net6.0\OOPInherit.dll
+C:\Users\Ceci\Desktop\web-projects\NET22\csharp\csharp-workshops\10-OOP-inherit\OOPInherit\OOPInherit\obj\Debug\net6.0\refint\OOPInherit.dll
+C:\Users\Ceci\Desktop\web-projects\NET22\csharp\csharp-workshops\10-OOP-inherit\OOPInherit\OOPInherit\obj\Debug\net6.0\OOPInherit.pdb
+C:\Users\Ceci\Desktop\web-projects\NET22\csharp\csharp-workshops\10-OOP-inherit\OOPInherit\OOPInherit\obj\Debug\net6.0\OOPInherit.genruntimeconfig.cache
+C:\Users\Ceci\Desktop\web-projects\NET22\csharp\csharp-workshops\10-OOP-inherit\OOPInherit\OOPInherit\obj\Debug\net6.0\ref\OOPInherit.dll

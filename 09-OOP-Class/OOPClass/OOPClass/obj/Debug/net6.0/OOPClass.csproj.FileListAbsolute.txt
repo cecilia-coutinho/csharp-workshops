@@ -1,0 +1,15 @@
+C:\Users\Ceci\Desktop\web-projects\NET22\csharp\csharp-workshops\09-OOP-Class\OOPClass\OOPClass\bin\Debug\net6.0\OOPClass.exe
+C:\Users\Ceci\Desktop\web-projects\NET22\csharp\csharp-workshops\09-OOP-Class\OOPClass\OOPClass\bin\Debug\net6.0\OOPClass.deps.json
+C:\Users\Ceci\Desktop\web-projects\NET22\csharp\csharp-workshops\09-OOP-Class\OOPClass\OOPClass\bin\Debug\net6.0\OOPClass.runtimeconfig.json
+C:\Users\Ceci\Desktop\web-projects\NET22\csharp\csharp-workshops\09-OOP-Class\OOPClass\OOPClass\bin\Debug\net6.0\OOPClass.dll
+C:\Users\Ceci\Desktop\web-projects\NET22\csharp\csharp-workshops\09-OOP-Class\OOPClass\OOPClass\bin\Debug\net6.0\OOPClass.pdb
+C:\Users\Ceci\Desktop\web-projects\NET22\csharp\csharp-workshops\09-OOP-Class\OOPClass\OOPClass\obj\Debug\net6.0\OOPClass.csproj.AssemblyReference.cache
+C:\Users\Ceci\Desktop\web-projects\NET22\csharp\csharp-workshops\09-OOP-Class\OOPClass\OOPClass\obj\Debug\net6.0\OOPClass.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ceci\Desktop\web-projects\NET22\csharp\csharp-workshops\09-OOP-Class\OOPClass\OOPClass\obj\Debug\net6.0\OOPClass.AssemblyInfoInputs.cache
+C:\Users\Ceci\Desktop\web-projects\NET22\csharp\csharp-workshops\09-OOP-Class\OOPClass\OOPClass\obj\Debug\net6.0\OOPClass.AssemblyInfo.cs
+C:\Users\Ceci\Desktop\web-projects\NET22\csharp\csharp-workshops\09-OOP-Class\OOPClass\OOPClass\obj\Debug\net6.0\OOPClass.csproj.CoreCompileInputs.cache
+C:\Users\Ceci\Desktop\web-projects\NET22\csharp\csharp-workshops\09-OOP-Class\OOPClass\OOPClass\obj\Debug\net6.0\OOPClass.dll
+C:\Users\Ceci\Desktop\web-projects\NET22\csharp\csharp-workshops\09-OOP-Class\OOPClass\OOPClass\obj\Debug\net6.0\refint\OOPClass.dll
+C:\Users\Ceci\Desktop\web-projects\NET22\csharp\csharp-workshops\09-OOP-Class\OOPClass\OOPClass\obj\Debug\net6.0\OOPClass.pdb
+C:\Users\Ceci\Desktop\web-projects\NET22\csharp\csharp-workshops\09-OOP-Class\OOPClass\OOPClass\obj\Debug\net6.0\OOPClass.genruntimeconfig.cache
+C:\Users\Ceci\Desktop\web-projects\NET22\csharp\csharp-workshops\09-OOP-Class\OOPClass\OOPClass\obj\Debug\net6.0\ref\OOPClass.dll
