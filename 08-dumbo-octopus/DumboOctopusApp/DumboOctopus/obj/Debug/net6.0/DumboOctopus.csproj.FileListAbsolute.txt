@@ -1,0 +1,15 @@
+C:\Users\Ceci\Desktop\web-projects\NET22\csharp\csharp-workshops\08-dumbo-octopus\DumboOctopusApp\DumboOctopus\bin\Debug\net6.0\DumboOctopus.exe
+C:\Users\Ceci\Desktop\web-projects\NET22\csharp\csharp-workshops\08-dumbo-octopus\DumboOctopusApp\DumboOctopus\bin\Debug\net6.0\DumboOctopus.deps.json
+C:\Users\Ceci\Desktop\web-projects\NET22\csharp\csharp-workshops\08-dumbo-octopus\DumboOctopusApp\DumboOctopus\bin\Debug\net6.0\DumboOctopus.runtimeconfig.json
+C:\Users\Ceci\Desktop\web-projects\NET22\csharp\csharp-workshops\08-dumbo-octopus\DumboOctopusApp\DumboOctopus\bin\Debug\net6.0\DumboOctopus.dll
+C:\Users\Ceci\Desktop\web-projects\NET22\csharp\csharp-workshops\08-dumbo-octopus\DumboOctopusApp\DumboOctopus\bin\Debug\net6.0\DumboOctopus.pdb
+C:\Users\Ceci\Desktop\web-projects\NET22\csharp\csharp-workshops\08-dumbo-octopus\DumboOctopusApp\DumboOctopus\obj\Debug\net6.0\DumboOctopus.csproj.AssemblyReference.cache
+C:\Users\Ceci\Desktop\web-projects\NET22\csharp\csharp-workshops\08-dumbo-octopus\DumboOctopusApp\DumboOctopus\obj\Debug\net6.0\DumboOctopus.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ceci\Desktop\web-projects\NET22\csharp\csharp-workshops\08-dumbo-octopus\DumboOctopusApp\DumboOctopus\obj\Debug\net6.0\DumboOctopus.AssemblyInfoInputs.cache
+C:\Users\Ceci\Desktop\web-projects\NET22\csharp\csharp-workshops\08-dumbo-octopus\DumboOctopusApp\DumboOctopus\obj\Debug\net6.0\DumboOctopus.AssemblyInfo.cs
+C:\Users\Ceci\Desktop\web-projects\NET22\csharp\csharp-workshops\08-dumbo-octopus\DumboOctopusApp\DumboOctopus\obj\Debug\net6.0\DumboOctopus.csproj.CoreCompileInputs.cache
+C:\Users\Ceci\Desktop\web-projects\NET22\csharp\csharp-workshops\08-dumbo-octopus\DumboOctopusApp\DumboOctopus\obj\Debug\net6.0\DumboOctopus.dll
+C:\Users\Ceci\Desktop\web-projects\NET22\csharp\csharp-workshops\08-dumbo-octopus\DumboOctopusApp\DumboOctopus\obj\Debug\net6.0\refint\DumboOctopus.dll
+C:\Users\Ceci\Desktop\web-projects\NET22\csharp\csharp-workshops\08-dumbo-octopus\DumboOctopusApp\DumboOctopus\obj\Debug\net6.0\DumboOctopus.pdb
+C:\Users\Ceci\Desktop\web-projects\NET22\csharp\csharp-workshops\08-dumbo-octopus\DumboOctopusApp\DumboOctopus\obj\Debug\net6.0\DumboOctopus.genruntimeconfig.cache
+C:\Users\Ceci\Desktop\web-projects\NET22\csharp\csharp-workshops\08-dumbo-octopus\DumboOctopusApp\DumboOctopus\obj\Debug\net6.0\ref\DumboOctopus.dll

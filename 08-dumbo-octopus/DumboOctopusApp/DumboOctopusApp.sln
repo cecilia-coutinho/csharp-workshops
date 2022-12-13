@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33103.184
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DumboOctopus", "DumboOctopus\DumboOctopus.csproj", "{CA0E6108-8B5F-4091-9595-7CF18CA68A9A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CA0E6108-8B5F-4091-9595-7CF18CA68A9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA0E6108-8B5F-4091-9595-7CF18CA68A9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA0E6108-8B5F-4091-9595-7CF18CA68A9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA0E6108-8B5F-4091-9595-7CF18CA68A9A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6F56ECA0-A53D-4252-BBAF-FA688B8BFF7C}
+	EndGlobalSection
+EndGlobal
