@@ -1,0 +1,15 @@
+C:\Users\Ceci\Desktop\web-projects\NET22\csharp\csharp-workshops\13-login\LoginApp\Login\obj\Debug\net6.0\Login.csproj.AssemblyReference.cache
+C:\Users\Ceci\Desktop\web-projects\NET22\csharp\csharp-workshops\13-login\LoginApp\Login\obj\Debug\net6.0\Login.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ceci\Desktop\web-projects\NET22\csharp\csharp-workshops\13-login\LoginApp\Login\obj\Debug\net6.0\Login.AssemblyInfoInputs.cache
+C:\Users\Ceci\Desktop\web-projects\NET22\csharp\csharp-workshops\13-login\LoginApp\Login\obj\Debug\net6.0\Login.AssemblyInfo.cs
+C:\Users\Ceci\Desktop\web-projects\NET22\csharp\csharp-workshops\13-login\LoginApp\Login\obj\Debug\net6.0\Login.csproj.CoreCompileInputs.cache
+C:\Users\Ceci\Desktop\web-projects\NET22\csharp\csharp-workshops\13-login\LoginApp\Login\bin\Debug\net6.0\Login.exe
+C:\Users\Ceci\Desktop\web-projects\NET22\csharp\csharp-workshops\13-login\LoginApp\Login\bin\Debug\net6.0\Login.deps.json
+C:\Users\Ceci\Desktop\web-projects\NET22\csharp\csharp-workshops\13-login\LoginApp\Login\bin\Debug\net6.0\Login.runtimeconfig.json
+C:\Users\Ceci\Desktop\web-projects\NET22\csharp\csharp-workshops\13-login\LoginApp\Login\bin\Debug\net6.0\Login.dll
+C:\Users\Ceci\Desktop\web-projects\NET22\csharp\csharp-workshops\13-login\LoginApp\Login\bin\Debug\net6.0\Login.pdb
+C:\Users\Ceci\Desktop\web-projects\NET22\csharp\csharp-workshops\13-login\LoginApp\Login\obj\Debug\net6.0\Login.dll
+C:\Users\Ceci\Desktop\web-projects\NET22\csharp\csharp-workshops\13-login\LoginApp\Login\obj\Debug\net6.0\refint\Login.dll
+C:\Users\Ceci\Desktop\web-projects\NET22\csharp\csharp-workshops\13-login\LoginApp\Login\obj\Debug\net6.0\Login.pdb
+C:\Users\Ceci\Desktop\web-projects\NET22\csharp\csharp-workshops\13-login\LoginApp\Login\obj\Debug\net6.0\Login.genruntimeconfig.cache
+C:\Users\Ceci\Desktop\web-projects\NET22\csharp\csharp-workshops\13-login\LoginApp\Login\obj\Debug\net6.0\ref\Login.dll
