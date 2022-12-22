@@ -7,7 +7,7 @@ namespace Login
         static UserAccount[] usersAccount = {
             new UserAccount("maria", "1234"),
             new UserAccount("pedro", "1234"),
-            new("kalle", "1234"),
+            new UserAccount("kalle", "1234"),
             new UserAccount("johan", "1234"),
             new UserAccount("matias", "1234") };
 
