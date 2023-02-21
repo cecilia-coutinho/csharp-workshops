@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Configuration;
+using System.Globalization;
 
 namespace Workshop16DbCsharp
 {
@@ -42,9 +43,7 @@ namespace Workshop16DbCsharp
                         break;
                     case 2:
                         Console.Clear();
-                        Console.ForegroundColor = ConsoleColor.DarkCyan;
-                        Console.WriteLine("coming soon");
-                        Console.ResetColor();
+                        GetAllCourses();
                         GoBackMenuOptions();
                         break;
                     case 3:
@@ -128,6 +127,27 @@ namespace Workshop16DbCsharp
             else
             {
                 Console.WriteLine($"\tInga studenter hittades");
+            }
+        }
+
+        static void GetAllCourses()
+        {
+            List<CourseModel> courses = PostgresDataAccess.GetAllCourses();
+
+            if (courses != null && courses.Count > 0)
+            {
+                Console.WriteLine($"\n\tDet finns {courses.Count} kurser: ");
+                foreach (var course in courses)
+                {
+                    string courseStart = course.start_date.ToString("dd-MM-yyyy");
+                    string courseEnd = course.end_date.ToString("dd-MM-yyyy");
+                    Console.WriteLine($"\n\t- Kurs: {course?.name?.ToUpper()}, {course?.points} points, " +
+                        $"start: {courseStart}, slut: {courseEnd}");
+                }
+            }
+            else
+            {
+                Console.WriteLine($"\tInga kurs hittades");
             }
         }
     }
