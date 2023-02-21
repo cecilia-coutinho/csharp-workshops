@@ -22,9 +22,9 @@
  * SELECT * FROM csrc_course where name = '.net';
 
 - [x] Öva på att ändra data på en av raderna. Vad krävs att du gör för att ändringen ska bli permanent?
- * om inte med frågor är det nödvändigt att spara (knapp spara)
+ * om inte med query är det nödvändigt att spara (knapp spara)
 
 - [x] Öva på att ta bort en av raderna. Vad krävs att du gör för att ändringen ska bli permanent?
- * om inte med frågor är det nödvändigt att spara (knapp spara)
+ * om inte med query är det nödvändigt att spara (knapp spara)
 
 Visa hur du hanterar DbGate för att få godkänt på denna workshop
