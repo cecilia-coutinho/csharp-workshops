@@ -4,7 +4,7 @@ namespace Login
 {
     internal class Program
     {
-        static UserAccount[] usersAccount = {
+        private static UserAccount[] usersAccount = {
             new UserAccount("maria", "1234"),
             new UserAccount("pedro", "1234"),
             new("kalle", "1234"),
