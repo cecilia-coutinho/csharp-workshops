@@ -36,6 +36,7 @@ A. Avsluta
 ----> A
 
 Tack för att du använde databasen och välkommen åter.
+
 - [ ] Bygg funktionalitet utifrån de olika alternativen genom att direkt prata med databasen
 - [ ] Det är alltså förbjudet att först läsa in all data från databasen och göra ändringar där
 - [ ] Läs in datan varje gång den behövs
