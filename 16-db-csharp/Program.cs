@@ -11,6 +11,7 @@ namespace Workshop16DbCsharp
         static void Main(string[] args)
         {
             RunMenu();
+            //Helper.TestCreatingNewStudent();
         }
 
         static void RunMenu()
@@ -178,13 +179,13 @@ namespace Workshop16DbCsharp
                 return;
             }
 
-            StudentModel student = new StudentModel();
+            StudentModel student = new StudentModel()
             {
-                student.first_name = firstName;
-                student.last_name = lastName;
-                student.email = email;
-                student.age = age;
-                student.password = password;
+                first_name = firstName,
+                last_name = lastName,
+                email = email,
+                age = age,
+                password = password
             };
             PostgresDataAccess.CreateNewStudent(student);
             Console.WriteLine($"\n\tNEW STUDENT: name: {student.first_name} {student.last_name}, Email: {student.email}, age: {student.age}");
@@ -198,9 +199,38 @@ namespace Workshop16DbCsharp
             return Regex.IsMatch(email, emailPattern);
         }
 
+        //TODO: HANDLING ERROR: INVALID DATE FORMAT
         static void CreateCourse()
         {
+            Console.Write("\n\tCourse name: ");
+            string? name = Console.ReadLine()?.ToLower();
+            Console.Write("\tType points: ");
+            int.TryParse(Console.ReadLine(), out int points);
+            Console.Write("\tType start date dd-MM-yyyy: ");
+            string? start = Console.ReadLine();
+            DateTime.TryParseExact(start, "dd-MM-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime startDate);
+            Console.Write("\tType end date dd-MM-yyyy: ");
+            string? end = Console.ReadLine();
+            DateTime.TryParseExact(start, "dd-MM-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime endDate);
 
+            if (string.IsNullOrWhiteSpace(name) || points <= 0 || string.IsNullOrWhiteSpace(start))
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("\n\tPlease enter a value for all required fields (name, points, start date).");
+                Console.ResetColor();
+                return;
+            }
+
+            CourseModel course = new CourseModel()
+            {
+                name = name,
+                points = points,
+                start_date = startDate,
+                end_date = endDate
+            };
+
+            PostgresDataAccess.CreateNewCourse(course);
+            Console.WriteLine($"\n\tNEW COURSE: name: {course.name}, Points: {course.points}, Start {course.start_date}, End {course.end_date}");
         }
     }
 }
