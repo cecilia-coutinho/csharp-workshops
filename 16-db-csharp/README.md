@@ -15,9 +15,9 @@ Vad du ska göra
 
 - [ ] Skapa funktioner lika de Tim Corey skapar i sin video: https://www.youtube.com/watch?v=ayp3tHEkRc0
 
-- [ ] Lägg till tre paket med NuGet package manager, Dapper, Npgsql samt ConfigurationManager
+- [x] Lägg till tre paket med NuGet package manager, Dapper, Npgsql samt ConfigurationManager
 
-- [ ] Lägg till en ny Application Configuration File som ska ligga under "C# Items" när du tar new.
+- [x] Lägg till en ny Application Configuration File som ska ligga under "C# Items" när du tar new.
 
 - [ ] Skapa ett menysystem med följande alternativ
 
