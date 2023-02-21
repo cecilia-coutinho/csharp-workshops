@@ -18,8 +18,8 @@ namespace Workshop16DbCsharp
 
         // ###### Here starts CRUD operations ( Create, Retrieve, Update, and Delete) ######
 
-        // Create user
-        public static void CreateNewUser(StudentModel user)
+        // Create student
+        public static void CreateNewStudent(StudentModel student)
         {
             using (IDbConnection connection = new NpgsqlConnection(connectionString))
             {
@@ -29,18 +29,18 @@ namespace Workshop16DbCsharp
                 try
                 {
 
-                    connection.Execute(sql, user);
+                    connection.Execute(sql, student);
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("Ops! Something happened... Error creating user", ex);
+                    throw new Exception("Ops! Something happened... Error creating student", ex);
                 }
 
             }
         }
 
-        // Retrieve user by ID
-        public static StudentModel GetUserById(int userId)
+        // Retrieve student by ID
+        public static StudentModel GetStudentById(int studentId)
         {
             using (IDbConnection connection = new NpgsqlConnection(connectionString))
             {
@@ -49,17 +49,17 @@ namespace Workshop16DbCsharp
 
                 try
                 {
-                    return connection.QuerySingleOrDefault<StudentModel>(sql, new { id = userId });
+                    return connection.QuerySingleOrDefault<StudentModel>(sql, new { id = studentId });
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("Ops! Something happened... Error getting user by id", ex);
+                    throw new Exception("Ops! Something happened... Error getting student by id", ex);
                 }
             }
         }
 
         // Retrieve all users
-        public static List<StudentModel> GetAllUsers()
+        public static List<StudentModel> GetAllStudents()
         {
             using (IDbConnection connection = new NpgsqlConnection(connectionString))
             {
@@ -72,13 +72,13 @@ namespace Workshop16DbCsharp
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("Ops! Something happened... Error getting a list of users", ex);
+                    throw new Exception("Ops! Something happened... Error getting a list of students", ex);
                 }
             }
         }
 
-        //Update user
-        public static void UpdateUser(StudentModel user)
+        //Update student
+        public static void UpdateStudent(StudentModel student)
         {
             using (IDbConnection connection = new NpgsqlConnection(connectionString))
             {
@@ -90,23 +90,24 @@ namespace Workshop16DbCsharp
                              "age = @age, " +
                              "password = @password";
 
+                //TO TRY LATER:
                 //Use parameterized queries to prevent SQL injection attacks
                 //var userParameters = new
                 //{
-                //    first_name = user.first_name,
-                //    last_name = user.last_name,
-                //    email = user.email,
-                //    age = user.age,
-                //    password = user.password
+                //    first_name = student.first_name,
+                //    last_name = student.last_name,
+                //    email = student.email,
+                //    age = student.age,
+                //    password = student.password
                 //};
 
                 try
                 {
-                    connection.Execute(sql, user);
+                    connection.Execute(sql, student);
                 }
                 catch (NpgsqlException ex)
                 {
-                    throw new Exception("Ops! Something happened... Error updating user", ex);
+                    throw new Exception("Ops! Something happened... Error updating student", ex);
                 }
                 catch (Exception ex)
                 {
@@ -114,8 +115,8 @@ namespace Workshop16DbCsharp
                 }
             }
         }
-        // Delete user by ID
-        public static void DeleteUser(int userId)
+        // Delete student by ID
+        public static void DeleteUser(int studentId)
         {
             using (IDbConnection connection = new NpgsqlConnection(connectionString))
             {
@@ -124,8 +125,8 @@ namespace Workshop16DbCsharp
 
                 try
                 {
-                    // Execute the SQL statement with the given user ID parameter
-                    connection.Execute(sql, new { id = userId });
+                    // Execute the SQL statement with the given student ID parameter
+                    connection.Execute(sql, new { id = studentId });
                 }
                 catch (Exception ex)
                 {

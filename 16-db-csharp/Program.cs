@@ -105,5 +105,10 @@ namespace Workshop16DbCsharp
             Console.WriteLine("\n\tERROR: Invalid Option!".ToUpper());
             Console.ResetColor();
         }
+
+        static void GetAllStudents()
+        {
+            List<StudentModel> students = PostgresDataAccess.GetAllStudents();
+        }
     }
 }
