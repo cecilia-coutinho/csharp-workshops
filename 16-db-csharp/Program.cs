@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 
 namespace Workshop16DbCsharp
 {
@@ -35,48 +36,54 @@ namespace Workshop16DbCsharp
                 switch (menuChoice)
                 {
                     case 1:
-                        Console.ForegroundColor = ConsoleColor.DarkCyan;
-                        Console.WriteLine("coming soon");
-                        Console.ResetColor();
+                        Console.Clear();
+                        GetAllStudents();
                         GoBackMenuOptions();
                         break;
                     case 2:
+                        Console.Clear();
                         Console.ForegroundColor = ConsoleColor.DarkCyan;
                         Console.WriteLine("coming soon");
                         Console.ResetColor();
                         GoBackMenuOptions();
                         break;
                     case 3:
+                        Console.Clear();
                         Console.ForegroundColor = ConsoleColor.DarkCyan;
                         Console.WriteLine("coming soon");
                         Console.ResetColor();
                         GoBackMenuOptions();
                         break;
                     case 4:
+                        Console.Clear();
                         Console.ForegroundColor = ConsoleColor.DarkCyan;
                         Console.WriteLine("coming soon");
                         Console.ResetColor();
                         GoBackMenuOptions();
                         break;
                     case 5:
+                        Console.Clear();
                         Console.ForegroundColor = ConsoleColor.DarkCyan;
                         Console.WriteLine("coming soon");
                         Console.ResetColor();
                         GoBackMenuOptions();
                         break;
                     case 6:
+                        Console.Clear();
                         Console.ForegroundColor = ConsoleColor.DarkCyan;
                         Console.WriteLine("coming soon");
                         Console.ResetColor();
                         GoBackMenuOptions();
                         break;
                     case 7:
+                        Console.Clear();
                         Console.ForegroundColor = ConsoleColor.DarkCyan;
                         Console.WriteLine("coming soon");
                         Console.ResetColor();
                         GoBackMenuOptions();
                         break;
                     case 0:
+                        Console.Clear();
                         Console.WriteLine("\n\tThanks for your visit!");
                         Thread.Sleep(1000);
                         Environment.Exit(0);
@@ -109,6 +116,19 @@ namespace Workshop16DbCsharp
         static void GetAllStudents()
         {
             List<StudentModel> students = PostgresDataAccess.GetAllStudents();
+
+            if (students != null && students.Count > 0)
+            {
+                Console.WriteLine($"\n\tDet finns {students.Count} elever: ");
+                foreach (var student in students)
+                {
+                    Console.WriteLine($"\n\t- Student: {student.first_name} {student.last_name}, {student.age} år gammal, email: {student.email}");
+                }
+            }
+            else
+            {
+                Console.WriteLine($"\tInga studenter hittades");
+            }
         }
     }
 }
