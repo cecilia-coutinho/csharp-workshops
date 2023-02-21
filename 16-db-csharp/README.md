@@ -3,7 +3,7 @@ Vad du ska göra
 
 - [x] Skapa ett nytt projekt i Visual Studio.
 
-- [ ] Skapa en ny klassfil och döp den till StudentModel
+- [x] Skapa en ny klassfil och döp den till StudentModel
 
 - [ ] Skapa fält (förslagsvis med prop<tab x 2>) som du döper samt ger samma datatyper som din tabell
 
