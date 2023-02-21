@@ -5,9 +5,9 @@ Vad du ska göra
 
 - [x] Skapa en ny klassfil och döp den till StudentModel
 
-- [ ] Skapa fält (förslagsvis med prop<tab x 2>) som du döper samt ger samma datatyper som din tabell
+- [x] Skapa fält (förslagsvis med prop<tab x 2>) som du döper samt ger samma datatyper som din tabell
 
-- [ ] Skapa en ny klassfil och döp den till CourseModel
+- [x] Skapa en ny klassfil och döp den till CourseModel
 
 - [ ] Skapa fält (förslagsvis med prop<tab x 2>) som du döper samt ger samma datatyper som din tabell
 
