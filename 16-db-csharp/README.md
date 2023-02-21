@@ -19,7 +19,7 @@ Vad du ska göra
 
 - [x] Lägg till en ny Application Configuration File som ska ligga under "C# Items" när du tar new.
 
-- [ ] Skapa ett menysystem med följande alternativ
+- [x] Skapa ett menysystem med följande alternativ
 
 Exempel 1
 
