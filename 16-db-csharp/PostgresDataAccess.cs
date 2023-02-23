@@ -101,29 +101,28 @@ namespace Workshop16DbCsharp
         {
             using (IDbConnection connection = new NpgsqlConnection(connectionString))
             {
-                connection.Open();
-                string sql = "UPDATE csrc_student SET " +
-                             "first_name = @first_name, " +
-                             "last_name = @last_name," +
-                             "email = @email, " +
-                             "age = @age, " +
-                             "password = @password " +
-                             "WHERE id = @id";
-
-                //TO TRY LATER:
-                //Use parameterized queries to prevent SQL injection attacks
-                //var userParameters = new
-                //{
-                //    first_name = student.first_name,
-                //    last_name = student.last_name,
-                //    email = student.email,
-                //    age = student.age,
-                //    password = student.password
-                //};
-
                 try
                 {
-                    connection.Execute(sql, student);
+                    connection.Open();
+                    string sql = "UPDATE csrc_student SET " +
+                                 "first_name = @first_name, " +
+                                 "last_name = @last_name," +
+                                 "email = @email, " +
+                                 "age = @age, " +
+                                 "password = @password " +
+                                 "WHERE id = @id";
+
+                    //Use parameterized queries to prevent SQL injection attacks
+                    var userParameters = new
+                    {
+                        first_name = student.first_name,
+                        last_name = student.last_name,
+                        email = student.email,
+                        age = student.age,
+                        password = student.password
+                    };
+
+                    connection.Execute(sql, userParameters);
                 }
                 catch (NpgsqlException ex)
                 {
@@ -246,7 +245,26 @@ namespace Workshop16DbCsharp
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("Ops! Something happened... Error getting user by id", ex);
+                    throw new Exception("Ops! Something happened... Error getting course by id", ex);
+                }
+            }
+        }
+
+        // Retrieve course by name
+        public static CourseModel GetCourseByname(string? courseName)
+        {
+            using (IDbConnection connection = new NpgsqlConnection(connectionString))
+            {
+                connection.Open();
+                string sql = "SELECT * FROM csrc_course WHERE name = @name";
+
+                try
+                {
+                    return connection.QuerySingleOrDefault<CourseModel>(sql, new { name = courseName });
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Ops! Something happened... Error getting course by name", ex);
                 }
             }
         }
@@ -257,15 +275,33 @@ namespace Workshop16DbCsharp
         {
             using (IDbConnection connection = new NpgsqlConnection(connectionString))
             {
-                connection.Open();
-                string sql = "UPDATE csrc_course SET " +
+                try
+                {
+                    connection.Open();
+                    string sql = "UPDATE csrc_course SET " +
                              "name = @name, " +
                              "points = @points," +
                              "start_date = @start_date, " +
-                             "end_date = @end_date";
-                try
-                {
-                    connection.Execute(sql, course);
+                             "end_date = @end_date " +
+                             "WHERE id = @id";
+
+                    //Use parameterized queries to prevent SQL injection attacks
+                    var courseParameters = new
+                    {
+                        name = course.name,
+                        points = course.points,
+                        start_date = course.start_date,
+                        end_date = course.end_date,
+                        id = course.id
+                    };
+
+                    int rowsAffected = connection.Execute(sql, courseParameters);
+
+                    if (rowsAffected == 0)
+                    {
+                        throw new Exception("Update failed. Please contact the support");
+                    }
+
                 }
                 catch (NpgsqlException ex)
                 {

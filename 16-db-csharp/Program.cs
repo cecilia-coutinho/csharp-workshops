@@ -72,9 +72,7 @@ namespace Workshop16DbCsharp
                     case 6:
                         //6. Redigera kurs
                         Console.Clear();
-                        Console.ForegroundColor = ConsoleColor.DarkCyan;
-                        Console.WriteLine("\n\tcoming soon");
-                        Console.ResetColor();
+                        CourseModel.UpdateCourse();
                         GoBackMenuOptions();
                         break;
                     case 7:

@@ -23,5 +23,7 @@ namespace Workshop16DbCsharp
             Console.WriteLine($"name: {student.first_name} {student.last_name}, Email: {student.email}, age: {student.age}");
         }
 
+        public static void TestUpdatingStudent() { }
+
     }
 }

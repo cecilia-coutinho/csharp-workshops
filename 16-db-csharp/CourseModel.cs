@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Npgsql;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -36,7 +37,9 @@ namespace Workshop16DbCsharp
                 Console.WriteLine($"\tInga kurs hittades");
             }
         }
-        public static void CreateCourse()
+
+        //method that returns a tuple
+        static (bool Success, string? ErrorMessage, CourseModel? course) CourseDataInput()
         {
             DateTime startDate, endDate;
             string? name, start, end;
@@ -52,10 +55,7 @@ namespace Workshop16DbCsharp
 
             if (string.IsNullOrWhiteSpace(name) || points <= 0 || string.IsNullOrWhiteSpace(start) || string.IsNullOrWhiteSpace(end))
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("\n\tPlease enter a value for all required fields (name, points, start date, end date).");
-                Console.ResetColor();
-                return;
+                return (false, "\n\tPlease enter a value for all required fields (name, points, start date, end date", null);
             }
             else
             {
@@ -64,21 +64,85 @@ namespace Workshop16DbCsharp
                     startDate = ParseStringToDate(start);
                     endDate = ParseStringToDate(end);
 
-                    CourseModel course = new CourseModel()
+                    CourseModel? newCourse = new CourseModel()
                     {
                         name = name,
                         points = points,
                         start_date = startDate,
                         end_date = endDate
                     };
-
-                    PostgresDataAccess.CreateNewCourse(course);
-                    Console.WriteLine($"\n\tNEW COURSE: name: {course.name}, Points: {course.points}, Start {ParseDateToString(course.start_date)}, End {ParseDateToString(course.end_date)}.");
+                    return (true, null, newCourse);
                 }
                 catch (FormatException ex)
                 {
-                    Console.WriteLine("\n\tDate in wrong format: " + ex.Message);
+                    string invalidFormat = "\n\tDate in wrong format: " + ex.Message;
+                    return (false, invalidFormat, null);
                 }
+            }
+        }
+        public static void CreateCourse()
+        {
+            (bool success, string? errorMessage, CourseModel? course) = CourseDataInput(); //method that returns a tuple
+
+            if (success && course != null)
+            {
+
+                PostgresDataAccess.CreateNewCourse(course);
+                Console.WriteLine($"\n\tNEW COURSE: name: {course.name}, Points: {course.points}, Start {ParseDateToString(course.start_date)}, End {ParseDateToString(course.end_date)}.");
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(errorMessage);
+                Console.ResetColor();
+            }
+        }
+
+        public static void UpdateCourse()
+        {
+            string? name, start;
+
+            Console.Write("\n\tcourse name: ");
+            name = Console.ReadLine();
+            Console.Write("\n\tstart date dd-MM-yyyy: ");
+            start = Console.ReadLine();
+
+            //retrive data by name
+            CourseModel? course = PostgresDataAccess.GetCourseByname(name);
+
+            if (name == null || start == null || course == null)
+            {
+                Console.WriteLine("\n\tCourse not found");
+                return;
+            }
+
+            try
+            {
+                DateTime startDate = ParseStringToDate(start);
+                if (course.start_date != startDate)
+                {
+                    Console.WriteLine("\n\tDate doesn't match");
+                    return;
+                }
+            }
+            catch (FormatException ex)
+            {
+                Console.WriteLine("\n\tInvalid date format", ex);
+                return;
+            }
+
+            Console.WriteLine("\n\tType the new data\n");
+            (bool success, string? errorMessage, CourseModel? updatedCourse) = CourseDataInput(); //method that returns a tuple
+
+            if (success && updatedCourse != null)
+            {
+                updatedCourse.id = course.id; //set same id
+                PostgresDataAccess.UpdateCourse(updatedCourse);
+                Console.WriteLine($"\n\tCOURSE UPDATED: name: {updatedCourse.name}, Points: {updatedCourse.points}, Start {ParseDateToString(updatedCourse.start_date)}, End {ParseDateToString(updatedCourse.end_date)}.");
+            }
+            else
+            {
+                Console.WriteLine(errorMessage);
             }
         }
 
