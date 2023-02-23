@@ -74,5 +74,32 @@ namespace Workshop16DbCsharp
 
             return Regex.IsMatch(email, emailPattern);
         }
+
+        public static void UpdatePassword()
+        {
+            string? emailInput, currentPassword, newPassword;
+            Console.Write("\n\temail: ");
+            emailInput = Console.ReadLine();
+            Console.Write("\n\tcurrent password: ");
+            currentPassword = Console.ReadLine();
+            Console.Write("\n\tnew password: ");
+            newPassword = Console.ReadLine();
+
+            StudentModel student = PostgresDataAccess.GetStudentByEmail(emailInput);
+            if (student == null)
+            {
+                Console.WriteLine("\n\tStudent not found.");
+                return;
+            }
+            if (student.password != currentPassword)
+            {
+                Console.WriteLine("\n\tIncorrect current password.");
+                return;
+            }
+
+            student.password = newPassword;
+            PostgresDataAccess.UpdatePassword(student);
+            Console.WriteLine("\n\tPassword updated successfully.");
+        }
     }
 }

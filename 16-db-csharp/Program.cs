@@ -66,9 +66,7 @@ namespace Workshop16DbCsharp
                     case 5:
                         //5. Byt lösenord
                         Console.Clear();
-                        Console.ForegroundColor = ConsoleColor.DarkCyan;
-                        Console.WriteLine("\n\tcoming soon");
-                        Console.ResetColor();
+                        StudentModel.UpdatePassword();
                         GoBackMenuOptions();
                         break;
                     case 6:

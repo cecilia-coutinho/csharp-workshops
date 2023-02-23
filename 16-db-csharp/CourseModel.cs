@@ -50,10 +50,10 @@ namespace Workshop16DbCsharp
             Console.Write("\tType end date dd-MM-yyyy: ");
             end = Console.ReadLine();
 
-            if (string.IsNullOrWhiteSpace(name) || points <= 0 || string.IsNullOrWhiteSpace(start))
+            if (string.IsNullOrWhiteSpace(name) || points <= 0 || string.IsNullOrWhiteSpace(start) || string.IsNullOrWhiteSpace(end))
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("\n\tPlease enter a value for all required fields (name, points, start date).");
+                Console.WriteLine("\n\tPlease enter a value for all required fields (name, points, start date, end date).");
                 Console.ResetColor();
                 return;
             }
@@ -77,7 +77,7 @@ namespace Workshop16DbCsharp
                 }
                 catch (FormatException ex)
                 {
-                    Console.WriteLine("Date in wrong format: " + ex.Message);
+                    Console.WriteLine("\n\tDate in wrong format: " + ex.Message);
                 }
             }
         }

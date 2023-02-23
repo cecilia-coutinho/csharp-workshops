@@ -58,6 +58,25 @@ namespace Workshop16DbCsharp
             }
         }
 
+        // Retrieve student by email
+        public static StudentModel GetStudentByEmail(string? studentEmail)
+        {
+            using (IDbConnection connection = new NpgsqlConnection(connectionString))
+            {
+                connection.Open();
+                string sql = "SELECT * FROM csrc_student WHERE email = @email";
+
+                try
+                {
+                    return connection.QuerySingleOrDefault<StudentModel>(sql, new { email = studentEmail });
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Ops! Something happened... Error getting student by id", ex);
+                }
+            }
+        }
+
         // Retrieve all users
         public static List<StudentModel> GetAllStudents()
         {
@@ -88,7 +107,8 @@ namespace Workshop16DbCsharp
                              "last_name = @last_name," +
                              "email = @email, " +
                              "age = @age, " +
-                             "password = @password";
+                             "password = @password " +
+                             "WHERE id = @id";
 
                 //TO TRY LATER:
                 //Use parameterized queries to prevent SQL injection attacks
@@ -115,6 +135,44 @@ namespace Workshop16DbCsharp
                 }
             }
         }
+
+        //Update password
+        public static void UpdatePassword(StudentModel student)
+        {
+            using (IDbConnection connection = new NpgsqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    string sql = "UPDATE csrc_student SET " +
+                             "password = @password " +
+                             "WHERE id = @id";
+
+                    //Use parameterized queries to prevent SQL injection attacks
+                    var userParameters = new
+                    {
+                        password = student.password,
+                        id = student.id
+                    };
+
+
+                    int rowsAffected = connection.Execute(sql, userParameters);
+                    if (rowsAffected == 0)
+                    {
+                        throw new Exception("Update failed. Please contact the support");
+                    }
+                }
+                catch (NpgsqlException ex)
+                {
+                    throw new Exception("Ops! Something happened... Error updating password", ex);
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Ops! Something happened...", ex);
+                }
+            }
+        }
+
         // Delete student by ID
         public static void DeleteUser(int studentId)
         {
