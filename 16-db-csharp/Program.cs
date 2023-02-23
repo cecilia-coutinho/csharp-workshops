@@ -78,9 +78,7 @@ namespace Workshop16DbCsharp
                     case 7:
                         //7. Radera kurs
                         Console.Clear();
-                        Console.ForegroundColor = ConsoleColor.DarkCyan;
-                        Console.WriteLine("\n\tcoming soon");
-                        Console.ResetColor();
+                        CourseModel.DeleteCourse();
                         GoBackMenuOptions();
                         break;
                     case 0:

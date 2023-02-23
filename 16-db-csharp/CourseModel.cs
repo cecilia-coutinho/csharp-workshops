@@ -98,7 +98,7 @@ namespace Workshop16DbCsharp
             }
         }
 
-        public static void UpdateCourse()
+        static CourseModel? ValidateCourseDataInput()
         {
             string? name, start;
 
@@ -107,42 +107,68 @@ namespace Workshop16DbCsharp
             Console.Write("\n\tstart date dd-MM-yyyy: ");
             start = Console.ReadLine();
 
-            //retrive data by name
+            //retrieve data by name
             CourseModel? course = PostgresDataAccess.GetCourseByname(name);
 
             if (name == null || start == null || course == null)
             {
-                Console.WriteLine("\n\tCourse not found");
-                return;
+                throw new Exception("\n\tCourse not found");
             }
 
             try
             {
                 DateTime startDate = ParseStringToDate(start);
-                if (course.start_date != startDate)
+                if (course?.start_date != startDate)
                 {
-                    Console.WriteLine("\n\tDate doesn't match");
-                    return;
+                    throw new Exception("\n\tDate doesn't match");
                 }
             }
             catch (FormatException ex)
             {
-                Console.WriteLine("\n\tInvalid date format", ex);
-                return;
+                throw new Exception("\n\tInvalid date format", ex);
             }
+            return course;
+        }
 
-            Console.WriteLine("\n\tType the new data\n");
-            (bool success, string? errorMessage, CourseModel? updatedCourse) = CourseDataInput(); //method that returns a tuple
-
-            if (success && updatedCourse != null)
+        public static void UpdateCourse()
+        {
+            try
             {
-                updatedCourse.id = course.id; //set same id
-                PostgresDataAccess.UpdateCourse(updatedCourse);
-                Console.WriteLine($"\n\tCOURSE UPDATED: name: {updatedCourse.name}, Points: {updatedCourse.points}, Start {ParseDateToString(updatedCourse.start_date)}, End {ParseDateToString(updatedCourse.end_date)}.");
+                CourseModel? course = ValidateCourseDataInput();
+                Console.WriteLine("\n\tType the new data\n");
+                (bool success, string? errorMessage, CourseModel? updatedCourse) = CourseDataInput(); //method that returns a tuple
+
+                if (success && updatedCourse != null && course != null)
+                {
+                    updatedCourse.id = course.id; //set same id
+                    PostgresDataAccess.UpdateCourse(updatedCourse);
+                    Console.WriteLine($"\n\tCOURSE UPDATED: name: {updatedCourse.name}, Points: {updatedCourse.points}, Start {ParseDateToString(updatedCourse.start_date)}, End {ParseDateToString(updatedCourse.end_date)}.");
+                }
+                else
+                {
+                    Console.WriteLine(errorMessage);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                Console.WriteLine(errorMessage);
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        public static void DeleteCourse()
+        {
+            try
+            {
+                CourseModel? course = ValidateCourseDataInput();
+                if (course != null)
+                {
+                    PostgresDataAccess.DeleteCourse(course.id);
+                    Console.WriteLine($"\n\tCourse deleted successfully!!");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
             }
         }
 
@@ -156,7 +182,6 @@ namespace Workshop16DbCsharp
         {
             string dateFormat = "dd-MM-yyyy";
             string dateString = date.ToString(dateFormat);
-
             return dateString;
         }
     }
