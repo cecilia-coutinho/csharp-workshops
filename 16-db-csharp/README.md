@@ -13,7 +13,7 @@ Vad du ska göra
 
 - [x] Skapa en ny klassfil PostgresDataAccess
 
-- [ ] Skapa funktioner lika de Tim Corey skapar i sin video: https://www.youtube.com/watch?v=ayp3tHEkRc0
+- [x] Skapa funktioner lika de Tim Corey skapar i sin video: https://www.youtube.com/watch?v=ayp3tHEkRc0
 
 - [x] Lägg till tre paket med NuGet package manager, Dapper, Npgsql samt ConfigurationManager
 
@@ -37,6 +37,6 @@ A. Avsluta
 
 Tack för att du använde databasen och välkommen åter.
 
-- [ ] Bygg funktionalitet utifrån de olika alternativen genom att direkt prata med databasen
-- [ ] Det är alltså förbjudet att först läsa in all data från databasen och göra ändringar där
-- [ ] Läs in datan varje gång den behövs
+- [x] Bygg funktionalitet utifrån de olika alternativen genom att direkt prata med databasen
+- [x] Det är alltså förbjudet att först läsa in all data från databasen och göra ändringar där
+- [x] Läs in datan varje gång den behövs
