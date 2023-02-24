@@ -1,0 +1,33 @@
+﻿DROP TABLE IF EXISTS "public"."csrc_student";
+DROP TABLE IF EXISTS "public"."csrc_course";
+CREATE TABLE "public"."csrc_student" ( 
+  "id" SERIAL,
+  "first_name" VARCHAR(50) NOT NULL,
+  "last_name" VARCHAR(50) NOT NULL,
+  "email" VARCHAR(100) NOT NULL,
+  "age" INTEGER NOT NULL,
+  "password" VARCHAR(15) NOT NULL,
+  CONSTRAINT "csrc_student_pkey" PRIMARY KEY ("id"),
+  CONSTRAINT "csrc_student_email_key" UNIQUE ("email")
+);
+CREATE TABLE "public"."csrc_course" ( 
+  "id" SERIAL,
+  "name" VARCHAR(50) NOT NULL,
+  "points" INTEGER NOT NULL,
+  "start_date" DATE NOT NULL,
+  "end_date" DATE NULL,
+  CONSTRAINT "csrc_course_pkey" PRIMARY KEY ("id")
+);
+INSERT INTO "public"."csrc_student" ("first_name", "last_name", "email", "age", "password") VALUES ('pedro', 'student', 'pedrostudent@student.com', 23, '1234');
+INSERT INTO "public"."csrc_student" ("first_name", "last_name", "email", "age", "password") VALUES ('peter', 'student', 'peterstudent@student.com', 25, '1234');
+INSERT INTO "public"."csrc_student" ("first_name", "last_name", "email", "age", "password") VALUES ('ignacio', 'rosa', 'nachorosa@tester.com', 33, '1234');
+INSERT INTO "public"."csrc_student" ("first_name", "last_name", "email", "age", "password") VALUES ('pepe', 'giovanni', 'pepe@student.com', 55, '1234');
+INSERT INTO "public"."csrc_student" ("first_name", "last_name", "email", "age", "password") VALUES ('mora', 'amora', 'mora@student.com', 15, '1234');
+INSERT INTO "public"."csrc_student" ("first_name", "last_name", "email", "age", "password") VALUES ('kalle', 'person', 'kalle@student.com', 38, '1234');
+INSERT INTO "public"."csrc_student" ("first_name", "last_name", "email", "age", "password") VALUES ('marta', 'rosa', 'martarosa@tester.com', 23, '1234');
+INSERT INTO "public"."csrc_student" ("first_name", "last_name", "email", "age", "password") VALUES ('maria', 'student', 'mariastudent@student.com', 18, '1234');
+INSERT INTO "public"."csrc_course" ("name", "points", "start_date", "end_date") VALUES ('c++', 60, '2023-03-01', '2024-04-01');
+INSERT INTO "public"."csrc_course" ("name", "points", "start_date", "end_date") VALUES ('c', 60, '2023-03-01', '2024-04-01');
+INSERT INTO "public"."csrc_course" ("name", "points", "start_date", "end_date") VALUES ('python', 60, '2023-03-01', '2024-04-01');
+INSERT INTO "public"."csrc_course" ("name", "points", "start_date", "end_date") VALUES ('.net', 50, '2023-01-01', '2024-01-01');
+INSERT INTO "public"."csrc_course" ("name", "points", "start_date", "end_date") VALUES ('java', 50, '2023-10-01', '2024-11-01');

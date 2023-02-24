@@ -97,7 +97,6 @@ namespace Workshop16DbCsharp
                         GoBackMenuOptions();
                         break;
                 }
-
             }
         }
         static void GoBackMenuOptions()
