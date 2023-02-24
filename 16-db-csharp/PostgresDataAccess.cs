@@ -29,15 +29,13 @@ namespace Workshop16DbCsharp
                     string sql = "INSERT INTO csrc_student (first_name, last_name, email, age, password) " +
                                  "VALUES (@first_name, @last_name, @email, @age, @password)";
 
-                    // Use parameterized queries to prevent SQL injection attacks
-                    var parameters = new DynamicParameters(student);
+                    var parameters = new DynamicParameters(student); // Use parameterized queries to prevent SQL injection attacks
                     connection.Execute(sql, parameters);
                 }
                 catch (Exception ex)
                 {
                     throw new Exception("Ops! Something happened... Error creating student", ex);
                 }
-
             }
         }
 
@@ -46,11 +44,10 @@ namespace Workshop16DbCsharp
         {
             using (IDbConnection connection = new NpgsqlConnection(connectionString))
             {
-                connection.Open();
-                string sql = "SELECT * FROM csrc_student WHERE id = @id";
-
                 try
                 {
+                    connection.Open();
+                    string sql = "SELECT * FROM csrc_student WHERE id = @id";
                     return connection.QuerySingleOrDefault<StudentModel>(sql, new { id = studentId });
                 }
                 catch (Exception ex)
@@ -65,11 +62,10 @@ namespace Workshop16DbCsharp
         {
             using (IDbConnection connection = new NpgsqlConnection(connectionString))
             {
-                connection.Open();
-                string sql = "SELECT * FROM csrc_student WHERE email = @email";
-
                 try
                 {
+                    connection.Open();
+                    string sql = "SELECT * FROM csrc_student WHERE email = @email";
                     return connection.QuerySingleOrDefault<StudentModel>(sql, new { email = studentEmail });
                 }
                 catch (Exception ex)
@@ -84,11 +80,10 @@ namespace Workshop16DbCsharp
         {
             using (IDbConnection connection = new NpgsqlConnection(connectionString))
             {
-                connection.Open();
-                string sql = "SELECT * FROM csrc_student";
-
                 try
                 {
+                    connection.Open();
+                    string sql = "SELECT * FROM csrc_student";
                     return connection.Query<StudentModel>(sql).ToList();
                 }
                 catch (Exception ex)
@@ -113,10 +108,7 @@ namespace Workshop16DbCsharp
                                  "age = @age, " +
                                  "password = @password " +
                                  "WHERE id = @id";
-
-                    // Use parameterized queries to prevent SQL injection attacks
-                    var parameters = new DynamicParameters(student);
-
+                    var parameters = new DynamicParameters(student); // Use parameterized queries to prevent SQL injection attacks
                     connection.Execute(sql, parameters);
                 }
                 catch (NpgsqlException ex)
@@ -141,12 +133,9 @@ namespace Workshop16DbCsharp
                     string sql = "UPDATE csrc_student SET " +
                              "password = @password " +
                              "WHERE id = @id";
-
-                    // Use parameterized queries to prevent SQL injection attacks
-                    var parameters = new DynamicParameters(student);
-
-
+                    var parameters = new DynamicParameters(student); // Use parameterized queries to prevent SQL injection attacks
                     int rowsAffected = connection.Execute(sql, parameters);
+
                     if (rowsAffected == 0)
                     {
                         throw new Exception("Update failed. Please contact the support");
@@ -168,13 +157,11 @@ namespace Workshop16DbCsharp
         {
             using (IDbConnection connection = new NpgsqlConnection(connectionString))
             {
-                connection.Open();
-                string sql = "DELETE FROM csrc_student WHERE id = @id";
-
                 try
                 {
-                    // Execute the SQL statement with the given student ID parameter
-                    connection.Execute(sql, new { id = studentId });
+                    connection.Open();
+                    string sql = "DELETE FROM csrc_student WHERE id = @id";
+                    connection.Execute(sql, new { id = studentId }); // Execute the SQL statement with the given student ID parameter
                 }
                 catch (Exception ex)
                 {
@@ -193,11 +180,7 @@ namespace Workshop16DbCsharp
                     connection.Open();
                     string sql = "INSERT INTO csrc_course (name, points, start_date, end_date) " +
                                  "VALUES (@name, @points, @start_date, @end_date)";
-
-                    // Use parameterized queries to prevent SQL injection attacks
-                    var parameters = new DynamicParameters(course);
-
-
+                    var parameters = new DynamicParameters(course); // Use parameterized queries to prevent SQL injection attacks
                     connection.Execute(sql, parameters);
                 }
                 catch (Exception ex)
@@ -212,11 +195,10 @@ namespace Workshop16DbCsharp
         {
             using (IDbConnection connection = new NpgsqlConnection(connectionString))
             {
-                connection.Open();
-                string sql = "SELECT * FROM csrc_course";
-
                 try
                 {
+                    connection.Open();
+                    string sql = "SELECT * FROM csrc_course";
                     return connection.Query<CourseModel>(sql).ToList();
                 }
                 catch (Exception ex)
@@ -231,11 +213,10 @@ namespace Workshop16DbCsharp
         {
             using (IDbConnection connection = new NpgsqlConnection(connectionString))
             {
-                connection.Open();
-                string sql = "SELECT * FROM csrc_course WHERE id = @id";
-
                 try
                 {
+                    connection.Open();
+                    string sql = "SELECT * FROM csrc_course WHERE id = @id";
                     return connection.QuerySingleOrDefault<CourseModel>(sql, new { id = courseId });
                 }
                 catch (Exception ex)
@@ -250,11 +231,10 @@ namespace Workshop16DbCsharp
         {
             using (IDbConnection connection = new NpgsqlConnection(connectionString))
             {
-                connection.Open();
-                string sql = "SELECT * FROM csrc_course WHERE name = @name";
-
                 try
                 {
+                    connection.Open();
+                    string sql = "SELECT * FROM csrc_course WHERE name = @name";
                     return connection.QuerySingleOrDefault<CourseModel>(sql, new { name = courseName });
                 }
                 catch (Exception ex)
@@ -291,7 +271,7 @@ namespace Workshop16DbCsharp
                 }
                 catch (NpgsqlException ex)
                 {
-                    throw new Exception("Ops! Something happened... Error updating user", ex);
+                    throw new Exception("Ops! Something happened... Error updating course", ex);
                 }
                 catch (Exception ex)
                 {
@@ -305,16 +285,15 @@ namespace Workshop16DbCsharp
         {
             using (IDbConnection connection = new NpgsqlConnection(connectionString))
             {
-                connection.Open();
-                string sql = "DELETE FROM csrc_course WHERE id = @id";
-
                 try
                 {
+                    connection.Open();
+                    string sql = "DELETE FROM csrc_course WHERE id = @id";
                     connection.Execute(sql, new { id = courseId });
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("Ops! Something happened... Error deleting user", ex);
+                    throw new Exception("Ops! Something happened... Error deleting course", ex);
                 }
             }
         }
