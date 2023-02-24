@@ -23,13 +23,15 @@ namespace Workshop16DbCsharp
         {
             using (IDbConnection connection = new NpgsqlConnection(connectionString))
             {
-                connection.Open();
-                string sql = "INSERT INTO csrc_student (first_name, last_name, email, age, password) " +
-                             "VALUES (@first_name, @last_name, @email, @age, @password)";
                 try
                 {
+                    connection.Open();
+                    string sql = "INSERT INTO csrc_student (first_name, last_name, email, age, password) " +
+                                 "VALUES (@first_name, @last_name, @email, @age, @password)";
 
-                    connection.Execute(sql, student);
+                    // Use parameterized queries to prevent SQL injection attacks
+                    var parameters = new DynamicParameters(student);
+                    connection.Execute(sql, parameters);
                 }
                 catch (Exception ex)
                 {
@@ -112,17 +114,10 @@ namespace Workshop16DbCsharp
                                  "password = @password " +
                                  "WHERE id = @id";
 
-                    //Use parameterized queries to prevent SQL injection attacks
-                    var userParameters = new
-                    {
-                        first_name = student.first_name,
-                        last_name = student.last_name,
-                        email = student.email,
-                        age = student.age,
-                        password = student.password
-                    };
+                    // Use parameterized queries to prevent SQL injection attacks
+                    var parameters = new DynamicParameters(student);
 
-                    connection.Execute(sql, userParameters);
+                    connection.Execute(sql, parameters);
                 }
                 catch (NpgsqlException ex)
                 {
@@ -147,15 +142,11 @@ namespace Workshop16DbCsharp
                              "password = @password " +
                              "WHERE id = @id";
 
-                    //Use parameterized queries to prevent SQL injection attacks
-                    var userParameters = new
-                    {
-                        password = student.password,
-                        id = student.id
-                    };
+                    // Use parameterized queries to prevent SQL injection attacks
+                    var parameters = new DynamicParameters(student);
 
 
-                    int rowsAffected = connection.Execute(sql, userParameters);
+                    int rowsAffected = connection.Execute(sql, parameters);
                     if (rowsAffected == 0)
                     {
                         throw new Exception("Update failed. Please contact the support");
@@ -197,13 +188,17 @@ namespace Workshop16DbCsharp
         {
             using (IDbConnection connection = new NpgsqlConnection(connectionString))
             {
-                connection.Open();
-                string sql = "INSERT INTO csrc_course (name, points, start_date, end_date) " +
-                             "VALUES (@name, @points, @start_date, @end_date)";
                 try
                 {
+                    connection.Open();
+                    string sql = "INSERT INTO csrc_course (name, points, start_date, end_date) " +
+                                 "VALUES (@name, @points, @start_date, @end_date)";
 
-                    connection.Execute(sql, course);
+                    // Use parameterized queries to prevent SQL injection attacks
+                    var parameters = new DynamicParameters(course);
+
+
+                    connection.Execute(sql, parameters);
                 }
                 catch (Exception ex)
                 {
@@ -285,23 +280,14 @@ namespace Workshop16DbCsharp
                              "end_date = @end_date " +
                              "WHERE id = @id";
 
-                    //Use parameterized queries to prevent SQL injection attacks
-                    var courseParameters = new
-                    {
-                        name = course.name,
-                        points = course.points,
-                        start_date = course.start_date,
-                        end_date = course.end_date,
-                        id = course.id
-                    };
-
-                    int rowsAffected = connection.Execute(sql, courseParameters);
+                    // Use parameterized queries to prevent SQL injection attacks
+                    var parameters = new DynamicParameters(course);
+                    int rowsAffected = connection.Execute(sql, parameters);
 
                     if (rowsAffected == 0)
                     {
                         throw new Exception("Update failed. Please contact the support");
                     }
-
                 }
                 catch (NpgsqlException ex)
                 {
@@ -332,6 +318,5 @@ namespace Workshop16DbCsharp
                 }
             }
         }
-
     }
 }
