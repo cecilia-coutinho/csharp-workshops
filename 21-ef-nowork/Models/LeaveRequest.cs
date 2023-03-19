@@ -15,8 +15,10 @@ namespace LeaveManagementSystem.Models
         public int LeaveRequestId { get; set; }
         public int FkEmployeeId { get; set; }
         public int FkLeaveTypeId { get; set; }
+
         [Required]
         public DateTime RequestStartDate { get; set; }
+
         [Required]
         public DateTime RequestEndDate { get; set; }
         public float RequestedDays

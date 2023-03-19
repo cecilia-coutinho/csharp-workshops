@@ -12,8 +12,9 @@ namespace LeaveManagementSystem.Models
     {
         [Key]
         public int StatusId { get; set; }
+
         [Required]
-        [StringLength(15)]
+        [MaxLength(15)]
         [DisplayName("Status")]
         public string StatusName { get; set; }
     }

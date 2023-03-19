@@ -7,17 +7,21 @@ namespace LeaveManagementSystem.Models
     {
         [Key]
         public int EmployeeId { get; set; }
+
         [Required]
-        [StringLength(30)]
+        [MaxLength(50)]
         [DisplayName("First Name")]
         public string FirstName { get; set; }
+
         [Required]
-        [StringLength(30)]
+        [MaxLength(50)]
         [DisplayName("Last Name")]
         public string LastName { get; set; }
+
         [Required]
-        [StringLength(60)]
+        [MaxLength(200)]
         public string Email { get; set; }
+
         [Required]
         [DisplayName("Leave Balance")]
         public float LeaveBalance { get; set; }

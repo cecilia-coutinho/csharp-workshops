@@ -18,5 +18,7 @@ namespace MyFirstEntity.Models
         [Required]
         [StringLength(60)]
         public string Email { get; set; }
+        [StringLength(40)]
+        public string Address { get; set; }
     }
 }

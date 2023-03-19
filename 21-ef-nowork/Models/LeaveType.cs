@@ -12,11 +12,13 @@ namespace LeaveManagementSystem.Models
     {
         [Key]
         public int LeaveTypeId { get; set; }
+
         [Required]
-        [StringLength(30)]
+        [MaxLength(30)]
         [DisplayName("Leave Type Name")]
         public string LeaveTypeName { get; set; }
-        [StringLength(120)]
+
+        [MaxLength(120)]
         [DisplayName("Leave Type Description")]
         public string LeaveTypeDescription { get; set; }
     }
