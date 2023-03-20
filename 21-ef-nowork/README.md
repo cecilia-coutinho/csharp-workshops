@@ -3,7 +3,7 @@ I denna övning kommer ni att bygga en database till ett företag som vill ha et
 
 ### Vad du ska göra
 
-- [ ] Det ska gå att registrera all personal i databasen
+- [x] Det ska gå att registrera all personal i databasen
 
 - [ ] Det ska finnas en historik över sökta ledigheter.
 

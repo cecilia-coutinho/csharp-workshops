@@ -30,5 +30,6 @@ namespace LeaveManagementSystem.Models
             }
         }
         public int FkStatusId { get; set; }
+        public DateTime RequestCreatedOn { get; set; } = DateTime.Now;
     }
 }
