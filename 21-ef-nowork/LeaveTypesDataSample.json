@@ -1,0 +1,39 @@
+[
+  {
+    "LeaveTypeId": 1,
+    "LeaveTypeName": "Vacation",
+    "LeaveTypeDescription": "Paid time off for vacation."
+  },
+  {
+    "LeaveTypeId": 2,
+    "LeaveTypeName": "Sick Leave",
+    "LeaveTypeDescription": "Paid time off for illness or injury."
+  },
+  {
+    "LeaveTypeId": 3,
+    "LeaveTypeName": "Personal",
+    "LeaveTypeDescription": "Paid time off for personal reasons."
+  },
+  {
+    "LeaveTypeId": 4,
+    "LeaveTypeName": "No Paid",
+    "LeaveTypeDescription": "Unpaid time off for personal reasons."
+  },
+  {
+    "LeaveTypeId": 5,
+    "LeaveTypeName": "Maternity Leave",
+    "LeaveTypeDescription": "Paid time off for pregnancy, childbirth or adoption."
+  },
+  {
+    "LeaveTypeId": 6,
+    "LeaveTypeName": "Paternity Leave",
+    "LeaveTypeDescription": "Paid time off for childbirth or adoption of a child."
+  }
+  /*
+    {
+    "LeaveTypeId": 7,
+    "LeaveTypeName": "Bereavement",
+    "LeaveTypeDescription": "Paid time off for the death of a family member"
+  }
+*/
+]

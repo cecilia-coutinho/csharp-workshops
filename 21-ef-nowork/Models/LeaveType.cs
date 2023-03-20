@@ -20,6 +20,6 @@ namespace LeaveManagementSystem.Models
 
         [MaxLength(120)]
         [DisplayName("Leave Type Description")]
-        public string LeaveTypeDescription { get; set; }
+        public string LeaveTypeDescription { get; set; } = string.Empty;
     }
 }

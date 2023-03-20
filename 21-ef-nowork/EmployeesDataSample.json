@@ -1,0 +1,38 @@
+[
+  {
+    "FirstName": "John",
+    "LastName": "Doe",
+    "Email": "john.doe@example.com",
+    "LeaveBalance": 15.0
+  },
+  {
+    "FirstName": "Jane",
+    "LastName": "Smith",
+    "Email": "jane.smith@example.com",
+    "LeaveBalance": 30.0
+  },
+  {
+    "FirstName": "Bob",
+    "LastName": "Johnson",
+    "Email": "bob.johnson@example.com",
+    "LeaveBalance": 30.0
+  },
+  {
+    "FirstName": "Kalle",
+    "LastName": "Tester",
+    "Email": "kalle.tester@example.com",
+    "LeaveBalance": 30.0
+  },
+  {
+    "FirstName": "Maria",
+    "LastName": "Rosa",
+    "Email": "maria.rosa@example.com",
+    "LeaveBalance": 30.0
+  },
+  {
+    "FirstName": "Krille",
+    "LastName": "Tester",
+    "Email": "krille.tester@example.com",
+    "LeaveBalance": 30.0
+  }
+]

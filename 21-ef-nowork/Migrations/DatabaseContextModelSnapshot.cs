@@ -93,7 +93,6 @@ namespace LeaveManagementSystem.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("LeaveTypeId"), 1L, 1);
 
                     b.Property<string>("LeaveTypeDescription")
-                        .IsRequired()
                         .HasMaxLength(120)
                         .HasColumnType("nvarchar(120)");
 

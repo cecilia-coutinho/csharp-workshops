@@ -1,6 +1,6 @@
 ﻿
-#### Staff Table:
-	* StaffId (int, primary key)
+#### Employee Table:
+	* EmployeeId (int, primary key)
 	* FirstName (varchar(30), NOT NULL)
 	* LastName (varchar(30), NOT NULL)
 	* Email (varchar(60), UNIQUE, , NOT NULL)
@@ -8,7 +8,7 @@
 
 #### LeaveRequest Table:
 	* LeaveRequestId (int, primary key)
-	* FkStaffId (int, foreign key to Staff table)
+	* FkEmployeeId (int, foreign key to Employee table)
 	* FkLeaveTypeId (int, foreign key to LeaveType table)
 	* RequestStartDate (DateTime, NOT NULL)
 	* RequestEndDate (DateTime, NOT NULL)
@@ -30,4 +30,4 @@
 	* Condition: Status = 2
 		###Action:
 		- Calculate the number of days approved by subtracting the previous RequestedDays value from the updated RequestedDays value.
-		- Update the corresponding staff member's LeaveBalance by subtracting the calculated number of days.
+		- Update the corresponding Employee member's LeaveBalance by subtracting the calculated number of days.
