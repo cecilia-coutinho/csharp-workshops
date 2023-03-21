@@ -17,5 +17,6 @@ namespace LeaveManagementSystem.Models
         [MaxLength(15)]
         [DisplayName("Status")]
         public string StatusName { get; set; }
+        public List<LeaveRequest> LeaveRequests { get; set; }
     }
 }

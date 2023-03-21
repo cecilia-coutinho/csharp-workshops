@@ -25,9 +25,6 @@ namespace LeaveManagementSystem.Models
         [Required]
         [DisplayName("Leave Balance")]
         public float LeaveBalance { get; set; }
-        //{ 
-        //    get { return LeaveBalance; }
-        //    set { LeaveBalance = value; }
-        //}
+        public List<LeaveRequest> LeaveRequests { get; set; }
     }
 }

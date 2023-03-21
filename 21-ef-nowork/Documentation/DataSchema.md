@@ -27,7 +27,6 @@
 #### Trigger:
 	* Name: Update_LeaveBalance_On_LeaveRequest_Approval
 	* Event: AFTER UPDATE
-	* Condition: Status = 2
+	* Condition: Status = 2 (Approved)
 		###Action:
-		- Calculate the number of days approved by subtracting the previous RequestedDays value from the updated RequestedDays value.
-		- Update the corresponding Employee member's LeaveBalance by subtracting the calculated number of days.
+		- Update the corresponding Employee member's LeaveBalance by subtracting the calculated number of Approved RequestedDays From LeaveRequest Table.

@@ -82,7 +82,16 @@ namespace LeaveManagementSystem.Migrations
                     b.Property<DateTime>("RequestStartDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<float>("RequestedDays")
+                        .HasColumnType("real");
+
                     b.HasKey("LeaveRequestId");
+
+                    b.HasIndex("FkEmployeeId");
+
+                    b.HasIndex("FkLeaveTypeId");
+
+                    b.HasIndex("FkStatusId");
 
                     b.ToTable("LeaveRequests");
                 });
@@ -131,6 +140,48 @@ namespace LeaveManagementSystem.Migrations
                         .IsUnique();
 
                     b.ToTable("StatusList");
+                });
+
+            modelBuilder.Entity("LeaveManagementSystem.Models.LeaveRequest", b =>
+                {
+                    b.HasOne("LeaveManagementSystem.Models.Employee", "Employees")
+                        .WithMany("LeaveRequests")
+                        .HasForeignKey("FkEmployeeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("LeaveManagementSystem.Models.LeaveType", "LeaveTypes")
+                        .WithMany("LeaveRequests")
+                        .HasForeignKey("FkLeaveTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("LeaveManagementSystem.Models.Status", "StatusList")
+                        .WithMany("LeaveRequests")
+                        .HasForeignKey("FkStatusId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Employees");
+
+                    b.Navigation("LeaveTypes");
+
+                    b.Navigation("StatusList");
+                });
+
+            modelBuilder.Entity("LeaveManagementSystem.Models.Employee", b =>
+                {
+                    b.Navigation("LeaveRequests");
+                });
+
+            modelBuilder.Entity("LeaveManagementSystem.Models.LeaveType", b =>
+                {
+                    b.Navigation("LeaveRequests");
+                });
+
+            modelBuilder.Entity("LeaveManagementSystem.Models.Status", b =>
+                {
+                    b.Navigation("LeaveRequests");
                 });
 #pragma warning restore 612, 618
         }

@@ -33,26 +33,42 @@ namespace LeaveManagementSystem.Data
             modelBuilder.Entity<Status>()
                 .HasIndex(u => u.StatusName)
                 .IsUnique();
+
+            modelBuilder.Entity<LeaveRequest>()
+                .HasOne(e => e.Employees)
+                .WithMany(r => r.LeaveRequests)
+                .HasForeignKey(lr => lr.FkEmployeeId);
+
+            modelBuilder.Entity<LeaveRequest>()
+                .HasOne(e => e.LeaveTypes)
+                .WithMany(r => r.LeaveRequests)
+                .HasForeignKey(lr => lr.FkLeaveTypeId);
+
+            modelBuilder.Entity<LeaveRequest>()
+                .HasOne(e => e.StatusList)
+                .WithMany(r => r.LeaveRequests)
+                .HasForeignKey(lr => lr.FkStatusId);
         }
 
         //CRUD Operations starts here
 
         //Create Employee
-        public static void AddEmployee(Employee newEmployee)
+        public static bool AddEmployee(Employee newEmployee)
         {
             using (var db = new DatabaseContext())
             {
                 if (newEmployee == null)
                 {
-                    Console.WriteLine("\n\tError: Employee not added. Please enter a valid data.");
-                    return;
+                    throw new ArgumentNullException(nameof(newEmployee), "Error: Employee not added. Please enter a valid data.");
                 }
+
                 else
                 {
                     try
                     {
                         db.Employees.Add(newEmployee);
                         db.SaveChanges();
+                        return true;
                     }
                     catch (Exception ex)
                     {
@@ -60,8 +76,7 @@ namespace LeaveManagementSystem.Data
 
                         if (employeeExists)
                         {
-                            Console.WriteLine("\n\tError: Employee already exists in the database.", ex);
-                            return;
+                            throw new Exception("\n\tError: Employee already exists in the database.");
                         }
                         else
                         {
@@ -77,15 +92,18 @@ namespace LeaveManagementSystem.Data
         {
             using (var db = new DatabaseContext())
             {
-                var employee = db.Employees.FirstOrDefault(e => e.Email == email);
-                if (employee != null)
+                try
                 {
+                    var employee = db.Employees.FirstOrDefault(e => e.Email == email);
+                    if (employee == null)
+                    {
+                        Console.WriteLine($"\n\tEmployee with email '{email}' not found.");
+                    }
                     return employee;
                 }
-                else
+                catch (Exception ex)
                 {
-                    Console.WriteLine("\n\tEmployee not found!");
-                    return null;
+                    throw new Exception($"Error: Not found", ex);
                 }
             }
         }
@@ -120,7 +138,7 @@ namespace LeaveManagementSystem.Data
                 {
                     if (updatedEmployee == null)
                     {
-                        Console.WriteLine("\n\tError: please check yor data.");
+                        throw new Exception("\n\tError: please check yor data.");
                     }
                     else
                     {
@@ -131,34 +149,53 @@ namespace LeaveManagementSystem.Data
         }
 
         //Delete Employee
-        public static void DeleteEmployee(string email)
+        public static bool DeleteEmployee(string email)
         {
             using (var db = new DatabaseContext())
             {
-                try
-                {
-                    var employee = db
-                    .Employees
-                    .Where(e => e.Email == email)
-                    .First();
+                var employee = db
+                .Employees
+                .Where(e => e.Email == email)
+                .First();
 
-                    db.Employees.Remove(employee);
-                    db.SaveChanges();
-                    Console.WriteLine($"\n\tEmployee successfully removed!");
-                }
-                catch (Exception ex)
+                if (email == null)
                 {
-                    if (email == null)
-                    {
-                        Console.WriteLine("\n\tError: Delete failed! Employee not found.");
-                        return;
-                    }
-                    else
-                    {
-                        throw new Exception("\n\tError: Employee not removed.", ex);
-                    }
+                    throw new ArgumentNullException($"{nameof(email)}, Error: Delete failed! Employee not found.");
+                }
+
+                db.Employees.Remove(employee);
+                db.SaveChanges();
+                return db.Employees.FirstOrDefault(e => e.Email == email) == null;
+            }
+        }
+
+        // Create LeaveType
+        public static bool AddLeaveRequest(LeaveRequest newRequest)
+        {
+            using (var db = new DatabaseContext())
+            {
+                if (newRequest == null)
+                {
+                    throw new ArgumentNullException(nameof(newRequest), "Error: Employee not added. Please enter a valid data.");
+                }
+                else
+                {
+                    db.LeaveRequests.Add(newRequest);
+                    db.SaveChanges();
+                    return true;
                 }
             }
         }
+
+        // Read LeaveType
+        public static List<LeaveType> GetListLeaveType()
+        {
+            using (var db = new DatabaseContext())
+            {
+                return db.LeaveTypes.ToList();
+            }
+        }
+
+        // Update Leave Type
     }
 }

@@ -2,6 +2,7 @@
 using LeaveManagementSystem.Models;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
+using System.Globalization;
 using System.Text.Json;
 
 namespace LeaveManagementSystem
@@ -10,12 +11,12 @@ namespace LeaveManagementSystem
     {
         static void Main(string[] args)
         {
-            LoadSampleData();
-            //GetEmployee();
+            LoadDataSample();
             MainMenu();
+            //GetLeaveRequestData();
         }
 
-        private static void LoadSampleData()
+        private static void LoadDataSample()
         {
             using (var db = new DatabaseContext())
             {
@@ -30,16 +31,28 @@ namespace LeaveManagementSystem
                         db.SaveChanges();
                     }
                 }
+
+                if (db.LeaveTypes.Count() == 0)
+                {
+                    var file = File.ReadAllText("LeaveTypesDataSample.json");
+                    var leaveTypes = JsonSerializer.Deserialize<List<LeaveType>>(file);
+
+                    if (leaveTypes != null)
+                    {
+                        db.AddRange(leaveTypes);
+                        db.SaveChanges();
+                    }
+                }
                 //else
                 //{
-                //    var employees = db?.Employees?.ToList();
-                //    if (employees != null)
+                //    var leaveTypes = db?.Employees?.ToList();
+                //    if (leaveTypes != null)
                 //    {
                 //        Console.ForegroundColor = ConsoleColor.DarkYellow;
                 //        Console.WriteLine("\nWELCOME!");
                 //        Console.ResetColor();
                 //        Console.WriteLine("\nList of Employees: ");
-                //        foreach (var employee in employees)
+                //        foreach (var employee in leaveTypes)
                 //        {
                 //            Console.WriteLine($"Name: {employee.FirstName} {employee.LastName}, Email: {employee.Email}, Leave Balance: {employee.LeaveBalance}");
                 //        }
@@ -65,7 +78,7 @@ namespace LeaveManagementSystem
             {
                 Console.WriteLine($"\n\t{i + 1}. {menuItems[i]}");
             }
-            Console.Write($"\n\tSelect menu ---> ");
+            Console.Write($"\nSelect menu ---> ");
             int.TryParse(Console.ReadLine(), out int menuChoice);
             //return menuChoice -= 1;
             return menuChoice;
@@ -137,7 +150,11 @@ namespace LeaveManagementSystem
                         //Add Employee
                         Console.Clear();
                         Employee employee = GetEmployeeData();
-                        DatabaseContext.AddEmployee(employee);
+                        bool isAdded = DatabaseContext.AddEmployee(employee);
+                        if (isAdded)
+                        {
+                            Console.WriteLine($"\n\tEmployee successfully added!");
+                        }
                         break;
                     case 2:
                         //Update Employee
@@ -152,7 +169,11 @@ namespace LeaveManagementSystem
                     case 3:
                         //Delete Employee
                         string email = GetEmployee();
-                        DatabaseContext.DeleteEmployee(email);
+                        bool isDeleted = DatabaseContext.DeleteEmployee(email);
+                        if (isDeleted)
+                        {
+                            Console.WriteLine($"\n\tEmployee successfully removed!");
+                        }
                         break;
                     case 4:
                         //Back to Main Menu
@@ -175,55 +196,149 @@ namespace LeaveManagementSystem
             Console.Clear();
             List<string> leaveRequestMenu = new()
             {
-                "Manage Employees",
-                "Manage Leave Request",
-                "Manage Leave Type",
-                "View Reports",
-                "Exit"
+                "Add Leave Request",
+                "Update Leave Request",
+                "Update Leave Request Status",
+                "Delete Leave Request",
+                "Back to Main Menu"
             };
-            //bool runLoginMenu = true;
+            bool runLoginMenu = true;
 
-            //while (runLoginMenu)
-            //{
-            //    int menuChoice = DisplayMenu(leaveRequestMenu);
-            //    switch (menuChoice)
-            //    {
-            //        case 1:
-            //            ManageEmployees();
-            //            break;
-            //        case 2:
-            //            ManageLeaveRequest();
-            //            break;
-            //        case 3:
-            //            ManageLeaveType();
-            //            break;
-            //        case 4:
-            //            ViewReports();
-            //            break;
-            //        case 5:
-            //            Console.WriteLine("\n\tThanks for your visit!");
-            //            Thread.Sleep(1000);
-            //            runLoginMenu = false;
-            //            break;
-            //        default:
-            //            Console.Clear();
-            //            Console.ForegroundColor = ConsoleColor.Red;
-            //            Console.WriteLine("\n\tPlease, choose 1-5 from the menu\n");
-            //            Console.ResetColor();
-            //            break;
-            //    }
-            //    Console.WriteLine("\n\tPress any key to continue...");
-            //    Console.ReadKey();
-            //}
+            while (runLoginMenu)
+            {
+                int menuChoice = DisplayMenu(leaveRequestMenu);
+                switch (menuChoice)
+                {
+                    case 1:
+                        //Add Leave Request
+                        Console.Clear();
+                        LeaveRequest request = GetLeaveRequestData();
+                        bool isAdded = DatabaseContext.AddLeaveRequest(request);
+                        if (isAdded)
+                        {
+                            Console.WriteLine($"\n\tRequest successfully added!");
+                        }
+                        break;
+                    case 2:
+                        //Update Leave Request
+                        break;
+                    case 3:
+                        //Update Leave Request Status
+                        break;
+                    case 4:
+                        //Delete Leave Request
+                        break;
+                    case 5:
+                        //Back to Main Menu
+                        MainMenu();
+                        break;
+                    default:
+                        Console.Clear();
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("\n\tPlease, choose 1-5 from the menu\n");
+                        Console.ResetColor();
+                        break;
+                }
+                Console.WriteLine("\n\tPress any key to continue...");
+                Console.ReadKey();
+            }
         }
 
         private static void ManageLeaveTypeMenu()
         {
+            Console.Clear();
+            List<string> leaveTypeMenu = new()
+            {
+                "View All Leave Types",
+                "Add Leave Type",
+                "Update Leave Type",
+                "Back to Main Menu"
+            };
+            bool runLoginMenu = true;
+
+            while (runLoginMenu)
+            {
+                int menuChoice = DisplayMenu(leaveTypeMenu);
+                switch (menuChoice)
+                {
+                    case 1:
+                        //View All Leave Types
+                        break;
+                    case 2:
+                        //Add Leave Type
+                        break;
+                    case 3:
+                        //Update Leave Type
+                        break;
+                    case 4:
+                        //Back to Main Menu
+                        MainMenu();
+                        break;
+                    default:
+                        Console.Clear();
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("\n\tPlease, choose 1-5 from the menu\n");
+                        Console.ResetColor();
+                        break;
+                }
+                Console.WriteLine("\n\tPress any key to continue...");
+                Console.ReadKey();
+            }
 
         }
 
         private static void ViewReportsMenu()
         {
+            Console.Clear();
+            List<string> reportsMenu = new()
+            {
+                "View Employee and Leave Balance",
+                "View All Employees and Leave Balance",
+                "View All Leave Requests",
+                "View Pending Leave Requests",
+                "View Approved Leave Requests",
+                "View Rejected Leave Requests",
+                "Back to Main Menu"
+            };
+            bool runLoginMenu = true;
+
+            while (runLoginMenu)
+            {
+                int menuChoice = DisplayMenu(reportsMenu);
+                switch (menuChoice)
+                {
+                    case 1:
+                        //View Employee and Leave Balance
+                        break;
+                    case 2:
+                        //View All Employees and Leave Balance
+                        break;
+                    case 3:
+                        //View All Leave Requests
+                        break;
+                    case 4:
+                        //View Pending Leave Requests
+                        break;
+                    case 5:
+                        //View Approved Leave Requests
+                        break;
+                    case 6:
+                        //View Rejected Leave Requests
+                        break;
+                    case 7:
+                        //Back to Main Menu
+                        MainMenu();
+                        break;
+                    default:
+                        Console.Clear();
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("\n\tPlease, choose 1-7 from the menu\n");
+                        Console.ResetColor();
+                        break;
+                }
+                Console.WriteLine("\n\tPress any key to continue...");
+                Console.ReadKey();
+            }
 
         }
 
@@ -258,7 +373,7 @@ namespace LeaveManagementSystem
         private static string GetEmployee()
         {
             Console.Clear();
-            Console.Write("\n\tType the email: ");
+            Console.Write("\n\tType the employee's email: ");
             string email = Console.ReadLine();
             if (string.IsNullOrEmpty(email))
             {
@@ -278,16 +393,83 @@ namespace LeaveManagementSystem
             }
         }
 
+        enum LeaveStatus
+        {
+            Pending = 1,
+            Approved = 2,
+            Rejected = 3
+        }
+
+        private static LeaveRequest GetLeaveRequestData()
+        {
+            //Get Employee
+            Console.Write("\n\tType the employee's email: ");
+            string email = Console.ReadLine();
+            var employee = DatabaseContext.GetEmployeeByEmail(email);
+            int employeeId = employee.EmployeeId;
+
+            //Get LeaveType Id by Name
+            Console.WriteLine("\n\tChoose the motive of the Request: ");
+            var leaveType = DatabaseContext.GetListLeaveType();
+            for (int i = 0; i < leaveType.Count; i++)
+            {
+                Console.WriteLine($"\n\t{i + 1}. {leaveType[i].LeaveTypeName}");
+            }
+            Console.Write("\nType your choice ---> ");
+            int.TryParse(Console.ReadLine(), out int leaveTypeChoice);
+
+            if (leaveTypeChoice <= 0 || leaveTypeChoice > leaveType.Count)
+            {
+                Console.WriteLine("\n\tPlease enter a valid choice");
+                return null;
+            }
+
+            Console.Write("\n\tType the StartDate: ");
+            string startDateString = Console.ReadLine();
+            DateTime startDate = ParseStringToDate(startDateString);
+
+            Console.Write("\n\tType the EndDate: ");
+            string endDateString = Console.ReadLine();
+            DateTime endDate = ParseStringToDate(endDateString);
+
+            int statusId = (int)LeaveStatus.Pending;
+
+            TimeSpan span = endDate - startDate;
+            float requestedDays = (float)span.TotalDays + 1;
+
+            if (string.IsNullOrEmpty(startDateString) ||
+                string.IsNullOrEmpty(endDateString) ||
+                string.IsNullOrEmpty(email))
+            {
+                Console.WriteLine("\n\tPlease enter a valid input");
+                return null;
+            }
+
+            LeaveRequest leaveRequest = new()
+            {
+                FkEmployeeId = employeeId,
+                FkLeaveTypeId = leaveTypeChoice,
+                RequestStartDate = startDate,
+                RequestEndDate = endDate,
+                RequestedDays = requestedDays,
+                FkStatusId = statusId
+            };
+            return leaveRequest;
+        }
+
+        static DateTime ParseStringToDate(string dateString)
+        {
+            string dateFormat = "dd-MM-yyyy"; //expected date format
+            if (string.IsNullOrEmpty(dateString))
+            {
+                throw new ArgumentException("\n\tInvalid date.");
+            }
+            return DateTime.ParseExact(dateString, dateFormat, CultureInfo.InvariantCulture);
+        }
+
         private static void ViewEmployeesAndLeaveBalance()
         {
 
-        }
-
-        static void GoBackMenuOptions()
-        {
-            //option to go back to the main menu
-            Console.WriteLine("\nPress ENTER to go back to the menu.\n");
-            Console.ReadLine();
         }
     }
 }

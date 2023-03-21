@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LeaveManagementSystem.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20230319110753_UpdatedValidation")]
-    partial class UpdatedValidation
+    [Migration("20230321205622_CreatedMigration")]
+    partial class CreatedMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -75,13 +75,25 @@ namespace LeaveManagementSystem.Migrations
                     b.Property<int>("FkStatusId")
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("RequestCreatedOn")
+                        .HasColumnType("datetime2");
+
                     b.Property<DateTime>("RequestEndDate")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime>("RequestStartDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<float>("RequestedDays")
+                        .HasColumnType("real");
+
                     b.HasKey("LeaveRequestId");
+
+                    b.HasIndex("FkEmployeeId");
+
+                    b.HasIndex("FkLeaveTypeId");
+
+                    b.HasIndex("FkStatusId");
 
                     b.ToTable("LeaveRequests");
                 });
@@ -95,7 +107,6 @@ namespace LeaveManagementSystem.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("LeaveTypeId"), 1L, 1);
 
                     b.Property<string>("LeaveTypeDescription")
-                        .IsRequired()
                         .HasMaxLength(120)
                         .HasColumnType("nvarchar(120)");
 
@@ -131,6 +142,48 @@ namespace LeaveManagementSystem.Migrations
                         .IsUnique();
 
                     b.ToTable("StatusList");
+                });
+
+            modelBuilder.Entity("LeaveManagementSystem.Models.LeaveRequest", b =>
+                {
+                    b.HasOne("LeaveManagementSystem.Models.Employee", "Employees")
+                        .WithMany("LeaveRequests")
+                        .HasForeignKey("FkEmployeeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("LeaveManagementSystem.Models.LeaveType", "LeaveTypes")
+                        .WithMany("LeaveRequests")
+                        .HasForeignKey("FkLeaveTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("LeaveManagementSystem.Models.Status", "StatusList")
+                        .WithMany("LeaveRequests")
+                        .HasForeignKey("FkStatusId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Employees");
+
+                    b.Navigation("LeaveTypes");
+
+                    b.Navigation("StatusList");
+                });
+
+            modelBuilder.Entity("LeaveManagementSystem.Models.Employee", b =>
+                {
+                    b.Navigation("LeaveRequests");
+                });
+
+            modelBuilder.Entity("LeaveManagementSystem.Models.LeaveType", b =>
+                {
+                    b.Navigation("LeaveRequests");
+                });
+
+            modelBuilder.Entity("LeaveManagementSystem.Models.Status", b =>
+                {
+                    b.Navigation("LeaveRequests");
                 });
 #pragma warning restore 612, 618
         }
