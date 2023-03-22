@@ -1,0 +1,154 @@
+[
+  {
+    "RequestStartDate": "2023-02-01",
+    "RequestEndDate": "2023-03-01",
+    "RequestedDays": 6,
+    "FkEmployeeId": 1,
+    "FkLeaveTypeId": 1,
+    "FkStatusId": 1
+  },
+  {
+    "RequestStartDate": "2023-03-01",
+    "RequestEndDate": "2023-03-05",
+    "RequestedDays": 4.0,
+    "FkEmployeeId": 17,
+    "FkLeaveTypeId": 2,
+    "FkStatusId": 1
+  },
+  {
+    "RequestStartDate": "2023-05-25",
+    "RequestEndDate": "2023-08-15",
+    "RequestedDays": 82.0,
+    "FkEmployeeId": 5,
+    "FkLeaveTypeId": 5,
+    "FkStatusId": 1
+  },
+  {
+    "RequestStartDate": "2023-08-05",
+    "RequestEndDate": "2023-09-05",
+    "RequestedDays": 31.0,
+    "FkEmployeeId": 3,
+    "FkLeaveTypeId": 1,
+    "FkStatusId": 2
+  },
+  {
+    "RequestStartDate": "2023-01-12",
+    "RequestEndDate": "2023-01-15",
+    "RequestedDays": 4.0,
+    "FkEmployeeId": 11,
+    "FkLeaveTypeId": 2,
+    "FkStatusId": 2
+  },
+  {
+    "RequestStartDate": "2023-04-10",
+    "RequestEndDate": "2023-04-12",
+    "RequestedDays": 3.0,
+    "FkEmployeeId": 13,
+    "FkLeaveTypeId": 3,
+    "FkStatusId": 1
+  },
+  {
+    "RequestStartDate": "2023-06-01",
+    "RequestEndDate": "2023-06-10",
+    "RequestedDays": 10.0,
+    "FkEmployeeId": 14,
+    "FkLeaveTypeId": 4,
+    "FkStatusId": 3
+  },
+  {
+    "RequestStartDate": "2023-07-05",
+    "RequestEndDate": "2023-10-10",
+    "RequestedDays": 98.0,
+    "FkEmployeeId": 2,
+    "FkLeaveTypeId": 6,
+    "FkStatusId": 3
+  },
+  {
+    "RequestStartDate": "2023-02-15",
+    "RequestEndDate": "2023-02-18",
+    "RequestedDays": 4.0,
+    "FkEmployeeId": 11,
+    "FkLeaveTypeId": 7,
+    "FkStatusId": 2
+  },
+  {
+    "RequestStartDate": "2023-09-01",
+    "RequestEndDate": "2023-09-01",
+    "RequestedDays": 1.0,
+    "FkEmployeeId": 6,
+    "FkLeaveTypeId": 1,
+    "FkStatusId": 1
+  },
+  {
+    "RequestStartDate": "2023-11-01",
+    "RequestEndDate": "2023-11-20",
+    "RequestedDays": 20.0,
+    "FkEmployeeId": 12,
+    "FkLeaveTypeId": 5,
+    "FkStatusId": 1
+  },
+  {
+    "RequestStartDate": "2023-04-20",
+    "RequestEndDate": "2023-04-22",
+    "RequestedDays": 3.0,
+    "FkEmployeeId": 4,
+    "FkLeaveTypeId": 3,
+    "FkStatusId": 3
+  },
+  {
+    "RequestStartDate": "2023-08-01",
+    "RequestEndDate": "2023-08-05",
+    "RequestedDays": 5.0,
+    "FkEmployeeId": 7,
+    "FkLeaveTypeId": 7,
+    "FkStatusId": 2
+  },
+  {
+    "RequestStartDate": "2023-02-08",
+    "RequestEndDate": "2023-02-09",
+    "RequestedDays": 2.0,
+    "FkEmployeeId": 15,
+    "FkLeaveTypeId": 3,
+    "FkStatusId": 3
+  },
+  {
+    "RequestStartDate": "2023-08-01",
+    "RequestEndDate": "2023-08-05",
+    "RequestedDays": 5.0,
+    "FkEmployeeId": 7,
+    "FkLeaveTypeId": 1,
+    "FkStatusId": 3
+  },
+  {
+    "RequestStartDate": "2023-11-01",
+    "RequestEndDate": "2023-11-30",
+    "RequestedDays": 30.0,
+    "FkEmployeeId": 16,
+    "FkLeaveTypeId": 5,
+    "FkStatusId": 1
+  },
+  {
+    "RequestStartDate": "2023-05-10",
+    "RequestEndDate": "2023-05-11",
+    "RequestedDays": 2.0,
+    "FkEmployeeId": 4,
+    "FkLeaveTypeId": 1,
+    "FkStatusId": 2
+  },
+  {
+    "RequestStartDate": "2023-01-05",
+    "RequestEndDate": "2023-01-12",
+    "RequestedDays": 8.0,
+    "FkEmployeeId": 13,
+    "FkLeaveTypeId": 3,
+    "FkStatusId": 3
+  },
+  {
+    "RequestStartDate": "2023-07-20",
+    "RequestEndDate": "2023-08-03",
+    "RequestedDays": 15.0,
+    "FkEmployeeId": 10,
+    "FkLeaveTypeId": 4,
+    "FkStatusId": 1
+  }
+]

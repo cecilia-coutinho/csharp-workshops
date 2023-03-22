@@ -7,13 +7,13 @@ I denna övning kommer ni att bygga en database till ett företag som vill ha et
 
 - [ ] Det ska finnas en historik över sökta ledigheter.
 
-- [ ] Det ska finnas olika ledighetstyper (t.ex semester, VAB, tjänstledighet) 
+- [x] Det ska finnas olika ledighetstyper (t.ex semester, VAB, tjänstledighet) 
 
 - [ ] Företaget vill veta hur många dager varje personal önskar söka ledighet och vilka datum ansökan skapas.
 
 ### Tips
 
-Bygg inte för avancerat menysystem, det behövs ingen inloggning.
+- [x]Bygg inte för avancerat menysystem, det behövs ingen inloggning.
 
 ### Extra utmaning
 

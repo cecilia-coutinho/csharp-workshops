@@ -20,14 +20,7 @@ namespace LeaveManagementSystem.Models
         public DateTime RequestEndDate { get; set; }
 
         public float RequestedDays { get; set; }
-        //public float RequestedDays
-        //{
-        //    get
-        //    {
-        //        TimeSpan span = RequestEndDate - RequestStartDate;
-        //        return (float)span.TotalDays + 1;
-        //    }
-        //}
+
         [Required]
         public int FkEmployeeId { get; set; }
 
