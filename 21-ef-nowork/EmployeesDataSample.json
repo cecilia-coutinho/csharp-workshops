@@ -35,4 +35,82 @@
     "Email": "krille.tester@example.com",
     "LeaveBalance": 30.0
   }
+  {
+    "FirstName": "Lisa",
+    "LastName": "Monalisa",
+    "Email": "lisa.monalisa@example.com",
+    "LeaveBalance": 40.0
+  }
+  {
+    "FirstName": "Carla",
+    "LastName": "Perez",
+    "Email": "carla.perez@example.com",
+    "LeaveBalance": 5.0
+  }
+  {
+    "FirstName": "Donna",
+    "LastName": "Donnuts",
+    "Email": "donna.donnuts@example.com",
+    "LeaveBalance": 15.0
+  }
+  {
+    "FirstName": "Matias",
+    "LastName": "Tester",
+    "Email": "matias.tester@example.com",
+    "LeaveBalance": 30.0
+  }
+  {
+    "FirstName": "Lisa",
+    "LastName": "Tester",
+    "Email": "lisa.tester@example.com",
+    "LeaveBalance": 45.0
+  }
+  {
+    "FirstName": "Lui",
+    "LastName": "Tester",
+    "Email": "lui.tester@example.com",
+    "LeaveBalance": 30.0
+  }
+  {
+    "FirstName": "Kim",
+    "LastName": "Tester",
+    "Email": "kim.tester@example.com",
+    "LeaveBalance": 25.0
+  }
+  {
+    "FirstName": "Boris",
+    "LastName": "Tester",
+    "Email": "boris.tester@example.com",
+    "LeaveBalance": 30.0
+  }
+  {
+    "FirstName": "Mora",
+    "LastName": "Tester",
+    "Email": "mora.tester@example.com",
+    "LeaveBalance": 400.0
+  }
+  {
+    "FirstName": "Amora",
+    "LastName": "Tester",
+    "Email": "amora.tester@example.com",
+    "LeaveBalance": 150.0
+  }
+  {
+    "FirstName": "Tina",
+    "LastName": "Tester",
+    "Email": "tina.tester@example.com",
+    "LeaveBalance": 44.0
+  }
+  {
+    "FirstName": "Lee",
+    "LastName": "Tester",
+    "Email": "lee.tester@example.com",
+    "LeaveBalance": 30.0
+  }
+  {
+    "FirstName": "Monalisa",
+    "LastName": "Tester",
+    "Email": "monalisa.tester@example.com",
+    "LeaveBalance": 30.0
+  }
 ]

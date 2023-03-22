@@ -5,11 +5,11 @@ I denna övning kommer ni att bygga en database till ett företag som vill ha et
 
 - [x] Det ska gå att registrera all personal i databasen
 
-- [ ] Det ska finnas en historik över sökta ledigheter.
+- [x] Det ska finnas en historik över sökta ledigheter.
 
 - [x] Det ska finnas olika ledighetstyper (t.ex semester, VAB, tjänstledighet) 
 
-- [ ] Företaget vill veta hur många dager varje personal önskar söka ledighet och vilka datum ansökan skapas.
+- [x] Företaget vill veta hur många dager varje personal önskar söka ledighet och vilka datum ansökan skapas.
 
 ### Tips
 
@@ -17,6 +17,6 @@ I denna övning kommer ni att bygga en database till ett företag som vill ha et
 
 ### Extra utmaning
 
-- [ ] Fyll i data i tabellerna
-- [ ] Hämta en personal med info om han eller hon sökt ledighet samt vilken typ och när.
-- [ ] Hämta alla ledighetstyper 
+- [x] Fyll i data i tabellerna
+- [x] Hämta en personal med info om han eller hon sökt ledighet samt vilken typ och när.
+- [x] Hämta alla ledighetstyper 
