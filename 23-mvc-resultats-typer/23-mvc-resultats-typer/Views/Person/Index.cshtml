@@ -1,0 +1,36 @@
+﻿@model IEnumerable<mvc_resultats_typer.Models.Person>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>List of People</h1>
+<p>Click on each name to see person details in Json format</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                    <a href="@Url.Action("Details", "Person", new { id = item.Id })">
+                        @Html.DisplayFor(modelItem => item.Name)</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<div style="background-color: #f0f0f0; padding: 10px; border: 1px solid #ccc;">
+    <h2 style="color: #333; font-size: 20px;">JSON-Serialized People List</h2>
+    <pre>
+        @Html.Raw(ViewBag.PeopleJson)
+    </pre>
+</div>

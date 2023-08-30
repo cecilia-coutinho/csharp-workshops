@@ -1,0 +1,14 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center" style="margin-bottom: 20px;">
+    <h1 class="display-4">Welcome</h1>
+    <p>Home View.</p>
+
+    <a href="@Url.Action("DownloadTrial", "Home", new { fileName = "nullprogram.exe" })">Download Trial</a>
+    <br />
+    <a href="@Url.Action("Index", "Person")">View Json Person Details</a>
+    <p style="margin-top: 20px; color:brown">@ViewBag.CustomMessage</p>
+
+</div>
